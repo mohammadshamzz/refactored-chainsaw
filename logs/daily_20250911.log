@@ -1,0 +1,1410 @@
+2025-09-11 05:08:22,265 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 05:08:22,267 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 05:08:22,267 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 05:08:22,268 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 05:08:22,352 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 05:08:22,353 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 05:08:23,078 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 05:08:23,079 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 05:08:23,349 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 05:08:23,350 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 05:08:23,350 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 05:08:23,350 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 05:08:24,796 - root - INFO - get_db_connection_pool:12 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 05:09:33,340 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 05:09:33,341 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 05:09:33,341 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 05:09:33,342 - agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 05:09:33,342 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 05:09:33,343 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 05:09:33,348 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 05:09:34,404 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,075.14
+2025-09-11 05:09:34,687 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 05:09:35,466 - root - INFO - validate_connection:402 - Data access OK. Retrieved 3 bars for AAPL
+2025-09-11 05:09:35,976 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,075.14 | Market: CLOSED
+2025-09-11 05:09:35,976 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 05:09:35,984 - root - INFO - _load_agent_state:393 - Loaded agent state: 26 watchlist items, PDT: 0/4
+2025-09-11 05:09:35,985 - root - INFO - _reset_daily_pdt_counter:197 - New trading day: 2025-09-11. PDT counter reset to 0/4
+2025-09-11 05:09:36,520 - root - INFO - _update_daily_equity_tracking:432 - New trading day started. Starting equity: $98075.14
+2025-09-11 05:09:36,754 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:09:58,234 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 05:09:58,236 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 05:09:58,237 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 05:09:58,238 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 05:09:58,269 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 05:09:58,271 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 05:09:58,553 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 05:09:58,555 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 05:09:58,608 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 05:09:58,610 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 05:09:58,611 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 05:09:58,612 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 05:09:59,109 - root - INFO - get_db_connection_pool:12 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 05:10:03,112 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 05:10:03,116 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 05:10:03,118 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 05:10:03,118 - agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 05:10:03,119 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 05:10:03,121 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 05:10:03,125 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 05:10:03,826 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,075.14
+2025-09-11 05:10:04,059 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 05:10:05,025 - root - INFO - validate_connection:402 - Data access OK. Retrieved 3 bars for AAPL
+2025-09-11 05:10:05,484 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,075.14 | Market: CLOSED
+2025-09-11 05:10:05,486 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 05:10:05,490 - root - INFO - _load_agent_state:393 - Loaded agent state: 26 watchlist items, PDT: 0/4
+2025-09-11 05:10:05,491 - root - INFO - _reset_daily_pdt_counter:197 - New trading day: 2025-09-11. PDT counter reset to 0/4
+2025-09-11 05:10:05,954 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:11:56,782 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:13:49,213 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:14:19,534 - root - INFO - _check_ltf_confirmation_enhanced:960 - [NVDA] Pullback complete, awaiting MSS
+2025-09-11 05:14:23,802 - root - INFO - _check_ltf_confirmation_enhanced:920 - [ORCL] Watchlist entry invalidated by SL breach
+2025-09-11 05:15:38,237 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:16:11,130 - root - INFO - _check_ltf_confirmation_enhanced:960 - [SONO] Pullback complete, awaiting MSS
+2025-09-11 05:17:23,807 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:17:45,779 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 05:18:53,493 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:19:10,045 - root - INFO - _check_ltf_confirmation_enhanced:960 - [OPEN] Pullback complete, awaiting MSS
+2025-09-11 05:20:36,210 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:22:28,938 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:24:18,165 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:26:09,677 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:27:42,945 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:27:51,747 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 05:29:18,820 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:31:07,358 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:32:58,561 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:34:48,838 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:36:32,331 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:36:49,377 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 05:38:00,587 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:39:51,497 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:41:42,134 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:43:31,498 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:45:17,873 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:45:47,152 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 05:46:48,316 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:48:28,845 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:50:22,652 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:52:13,088 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:54:04,706 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:55:49,570 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:56:02,481 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 05:57:20,912 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 05:59:08,825 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:01:06,499 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:02:55,997 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:04:42,048 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:05:04,082 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 06:06:12,462 - root - ERROR - execute_db_query:48 - Database query failed: SSL connection has been closed unexpectedly
+
+2025-09-11 06:06:12,465 - root - ERROR - _update_daily_equity_tracking:437 - Error updating daily equity tracking - start equity: $98075.14: connection already closed
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/psycopg2/extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.OperationalError: SSL connection has been closed unexpectedly
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/agent.py", line 418, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/database.py", line 50, in execute_db_query
+    conn.rollback()
+    ~~~~~~~~~~~~~^^
+psycopg2.InterfaceError: connection already closed
+2025-09-11 06:06:12,715 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:07:57,753 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:09:46,539 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:11:32,225 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:13:27,535 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:15:01,938 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:15:09,575 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 06:16:39,317 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:18:27,379 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:20:19,162 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:22:05,581 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:23:47,262 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:24:02,115 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 06:25:13,273 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:27:00,724 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:28:48,089 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:30:32,950 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:32:17,230 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:32:44,523 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 06:33:45,692 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:35:24,295 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:37:13,254 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:38:59,112 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:40:44,424 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:42:19,285 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:42:32,160 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 06:43:50,384 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:45:36,464 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:47:23,647 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:49:11,933 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:50:53,843 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:51:14,828 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 06:52:22,333 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:54:07,327 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:56:01,541 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:57:52,650 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 06:59:44,824 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:01:17,204 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:01:26,276 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 07:02:56,597 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:04:46,303 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:06:33,398 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:08:19,007 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:10:05,677 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:10:22,931 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 07:11:33,885 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:13:27,301 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:15:21,625 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 07:17:12,507 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-11 13:53:58,116 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 13:53:58,116 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 13:53:58,116 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 13:53:58,116 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 13:53:58,200 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 13:53:58,201 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 13:53:58,604 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 13:53:58,605 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 13:53:58,696 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 13:53:58,696 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 13:53:58,696 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 13:53:58,696 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 13:53:59,510 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 13:54:26,767 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 13:54:26,768 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 13:54:26,768 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 13:54:26,768 - agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 13:54:26,768 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 13:54:26,769 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 13:54:26,802 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 13:54:27,587 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,003.86
+2025-09-11 13:54:27,913 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 13:54:28,710 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 13:54:29,225 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,003.86 | Market: OPEN
+2025-09-11 13:54:29,226 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=True
+2025-09-11 13:54:29,239 - root - INFO - _load_agent_state:393 - Loaded agent state: 26 watchlist items, PDT: 0/4
+2025-09-11 13:54:29,239 - root - INFO - _reset_daily_pdt_counter:197 - New trading day: 2025-09-11. PDT counter reset to 0/4
+2025-09-11 13:54:29,712 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-72.72 | PDT: 0/4
+2025-09-11 13:54:43,967 - root - INFO - _find_htf_setup_async:876 - [ADBE] NEW POI | Type=Bearish | Score=23 | Range=(360.35, 361.92) | SL=379.76
+2025-09-11 13:54:43,967 - root - INFO - _save_agent_state:334 - Saving agent state - {'watchlist': {'ACN': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [254.4, 256.09], 'timestamp': '2025-09-09 14:56:59.548768+00:00', 'htf_stop_loss': 266.49785714285713, 'max_duration_seconds': 2592000.0}, 'ADI': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [240.6, 244.305], 'timestamp': '2025-09-09 14:57:03.045397+00:00', 'htf_stop_loss': 228.9892857142857, 'max_duration_seconds': 2592000.0}, 'NOW': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_mss', 'direction': 'buy', 'poi_range': [909.62, 932.585], 'timestamp': '2025-09-09 15:09:40.078218+00:00', 'htf_stop_loss': 862.0085714285715, 'max_duration_seconds': 2592000.0}, 'SAP': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [271.41, 273.69], 'timestamp': '2025-09-09 15:11:10.781090+00:00', 'htf_stop_loss': 281.36, 'max_duration_seconds': 2592000.0}, 'TXN': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [185.175, 187.63], 'timestamp': '2025-09-09 15:11:30.935255+00:00', 'htf_stop_loss': 197.64714285714285, 'max_duration_seconds': 2592000.0}, 'AAPL': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_mss', 'direction': 'buy', 'poi_range': [232.48, 234.76], 'timestamp': '2025-09-09 14:56:52.354489+00:00', 'htf_stop_loss': 224.74499999999998, 'max_duration_seconds': 2592000.0}, 'AMZN': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [238.14, 239.57], 'timestamp': '2025-09-09 14:57:17.792854+00:00', 'htf_stop_loss': 248.78142857142856, 'max_duration_seconds': 2592000.0}, 'ANET': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [137.1, 138.19], 'timestamp': '2025-09-09 14:57:22.042762+00:00', 'htf_stop_loss': 129.34357142857144, 'max_duration_seconds': 2592000.0}, 'ASML': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [804.89, 808.01], 'timestamp': '2025-09-09 14:57:28.163251+00:00', 'htf_stop_loss': 841.1071428571428, 'max_duration_seconds': 2592000.0}, 'AVGO': {'type': 'Bullish', 'score': 20, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [304.805, 316.975], 'timestamp': '2025-09-09 16:21:02.206098+00:00', 'htf_stop_loss': 278.595, 'max_duration_seconds': 2592000.0}, 'CRDO': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [142.33, 147.405], 'timestamp': '2025-09-09 15:13:09.087020+00:00', 'htf_stop_loss': 126.80428571428573, 'max_duration_seconds': 2592000.0}, 'CSCO': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [68.71, 69.16], 'timestamp': '2025-09-10 16:52:28.506825+00:00', 'htf_stop_loss': 71.125, 'max_duration_seconds': 2592000.0}, 'DFDV': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [17.75, 18.1], 'timestamp': '2025-09-09 16:26:21.082148+00:00', 'htf_stop_loss': 21.800714285714292, 'max_duration_seconds': 2592000.0}, 'GOOG': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [232.77, 233.99], 'timestamp': '2025-09-09 14:58:52.405718+00:00', 'htf_stop_loss': 221.19285714285715, 'max_duration_seconds': 2592000.0}, 'INTU': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [672.195, 675.995], 'timestamp': '2025-09-09 14:59:10.632106+00:00', 'htf_stop_loss': 701.2178571428572, 'max_duration_seconds': 2592000.0}, 'LASR': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [27.05, 27.585], 'timestamp': '2025-09-09 15:13:04.814370+00:00', 'htf_stop_loss': 24.785714285714285, 'max_duration_seconds': 2592000.0}, 'META': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [761.95, 769.75], 'timestamp': '2025-09-10 16:54:06.658591+00:00', 'htf_stop_loss': 796.5807142857143, 'max_duration_seconds': 2592000.0}, 'NVDA': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [172.5, 173.83], 'timestamp': '2025-09-09 15:09:45.130385+00:00', 'htf_stop_loss': 184.08357142857142, 'max_duration_seconds': 2592000.0}, 'OPEN': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [5.39, 5.9], 'timestamp': '2025-09-09 15:14:30.547288+00:00', 'htf_stop_loss': 3.605714285714286, 'max_duration_seconds': 2592000.0}, 'ORCL': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [242.21, 245.0], 'timestamp': '2025-09-09 15:09:49.448173+00:00', 'htf_stop_loss': 258.40214285714285, 'max_duration_seconds': 2592000.0}, 'PLTR': {'type': 'Bearish', 'score': 18, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [172.29, 173.405], 'timestamp': '2025-09-09 15:09:58.186332+00:00', 'htf_stop_loss': 187.69285714285715, 'max_duration_seconds': 2592000.0}, 'SHOP': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [145.07, 148.585], 'timestamp': '2025-09-09 15:11:15.286205+00:00', 'htf_stop_loss': 156.88071428571428, 'max_duration_seconds': 2592000.0}, 'SITM': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [237.49, 238.61], 'timestamp': '2025-09-09 15:14:20.244125+00:00', 'htf_stop_loss': 217.18857142857144, 'max_duration_seconds': 2592000.0}, 'SONO': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [14.65, 14.73], 'timestamp': '2025-09-09 15:11:33.792094+00:00', 'htf_stop_loss': 13.918571428571429, 'max_duration_seconds': 2592000.0}, 'TSLA': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [338.275, 341.71], 'timestamp': '2025-09-09 15:11:22.538817+00:00', 'htf_stop_loss': 314.15714285714284, 'max_duration_seconds': 2592000.0}, 'GOOGL': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [232.36, 233.67], 'timestamp': '2025-09-09 14:58:57.351727+00:00', 'htf_stop_loss': 220.64142857142858, 'max_duration_seconds': 2592000.0}, 'ADBE': {'direction': 'sell', 'poi_range': (360.35, 361.92), 'htf_stop_loss': np.float64(379.7557142857143), 'timestamp': datetime.datetime(2025, 9, 11, 13, 54, 43, 967362, tzinfo=datetime.timezone.utc), 'max_duration_seconds': 2592000.0, 'state': 'awaiting_pullback', 'score': 23, 'type': 'Bearish'}}, 'daily_equity_start': 98075.14, 'daily_trades_executed': 0, 'current_trading_day': '2025-09-11', 'last_saved': '2025-09-11T13:54:43.967387+00:00'}
+2025-09-11 13:54:43,973 - root - INFO - _find_htf_setup_async:896 - [ADBE] New HTF setup added to watchlist. Direction: sell.
+2025-09-11 13:54:43,973 - root - INFO - add_notification:33 - Notification: Setup Found - ADBE sell setup added to watchlist
+2025-09-11 13:55:16,353 - root - INFO - _check_ltf_confirmation_enhanced:960 - [ASML] Pullback complete, awaiting MSS
+2025-09-11 13:55:46,778 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 13:55:46,778 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 13:55:49,831 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for AAPL at 1d timeframe
+2025-09-11 13:56:17,509 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-125.28 | PDT: 0/4
+2025-09-11 13:56:32,009 - root - INFO - _find_htf_setup_async:876 - [CRM] NEW POI | Type=Bearish | Score=23 | Range=(250.02, 250.73) | SL=264.83
+2025-09-11 13:56:32,009 - root - INFO - _save_agent_state:334 - Saving agent state - {'watchlist': {'ACN': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [254.4, 256.09], 'timestamp': '2025-09-09 14:56:59.548768+00:00', 'htf_stop_loss': 266.49785714285713, 'max_duration_seconds': 2592000.0}, 'ADI': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [240.6, 244.305], 'timestamp': '2025-09-09 14:57:03.045397+00:00', 'htf_stop_loss': 228.9892857142857, 'max_duration_seconds': 2592000.0}, 'NOW': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_mss', 'direction': 'buy', 'poi_range': [909.62, 932.585], 'timestamp': '2025-09-09 15:09:40.078218+00:00', 'htf_stop_loss': 862.0085714285715, 'max_duration_seconds': 2592000.0}, 'SAP': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [271.41, 273.69], 'timestamp': '2025-09-09 15:11:10.781090+00:00', 'htf_stop_loss': 281.36, 'max_duration_seconds': 2592000.0}, 'TXN': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [185.175, 187.63], 'timestamp': '2025-09-09 15:11:30.935255+00:00', 'htf_stop_loss': 197.64714285714285, 'max_duration_seconds': 2592000.0}, 'AAPL': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_mss', 'direction': 'buy', 'poi_range': [232.48, 234.76], 'timestamp': '2025-09-09 14:56:52.354489+00:00', 'htf_stop_loss': 224.74499999999998, 'max_duration_seconds': 2592000.0}, 'AMZN': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [238.14, 239.57], 'timestamp': '2025-09-09 14:57:17.792854+00:00', 'htf_stop_loss': 248.78142857142856, 'max_duration_seconds': 2592000.0}, 'ANET': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [137.1, 138.19], 'timestamp': '2025-09-09 14:57:22.042762+00:00', 'htf_stop_loss': 129.34357142857144, 'max_duration_seconds': 2592000.0}, 'ASML': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_mss', 'direction': 'sell', 'poi_range': [804.89, 808.01], 'timestamp': '2025-09-09 14:57:28.163251+00:00', 'htf_stop_loss': 841.1071428571428, 'max_duration_seconds': 2592000.0}, 'AVGO': {'type': 'Bullish', 'score': 20, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [304.805, 316.975], 'timestamp': '2025-09-09 16:21:02.206098+00:00', 'htf_stop_loss': 278.595, 'max_duration_seconds': 2592000.0}, 'CRDO': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [142.33, 147.405], 'timestamp': '2025-09-09 15:13:09.087020+00:00', 'htf_stop_loss': 126.80428571428573, 'max_duration_seconds': 2592000.0}, 'CSCO': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [68.71, 69.16], 'timestamp': '2025-09-10 16:52:28.506825+00:00', 'htf_stop_loss': 71.125, 'max_duration_seconds': 2592000.0}, 'DFDV': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [17.75, 18.1], 'timestamp': '2025-09-09 16:26:21.082148+00:00', 'htf_stop_loss': 21.800714285714292, 'max_duration_seconds': 2592000.0}, 'GOOG': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [232.77, 233.99], 'timestamp': '2025-09-09 14:58:52.405718+00:00', 'htf_stop_loss': 221.19285714285715, 'max_duration_seconds': 2592000.0}, 'INTU': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [672.195, 675.995], 'timestamp': '2025-09-09 14:59:10.632106+00:00', 'htf_stop_loss': 701.2178571428572, 'max_duration_seconds': 2592000.0}, 'LASR': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [27.05, 27.585], 'timestamp': '2025-09-09 15:13:04.814370+00:00', 'htf_stop_loss': 24.785714285714285, 'max_duration_seconds': 2592000.0}, 'META': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [761.95, 769.75], 'timestamp': '2025-09-10 16:54:06.658591+00:00', 'htf_stop_loss': 796.5807142857143, 'max_duration_seconds': 2592000.0}, 'NVDA': {'type': 'Bearish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [172.5, 173.83], 'timestamp': '2025-09-09 15:09:45.130385+00:00', 'htf_stop_loss': 184.08357142857142, 'max_duration_seconds': 2592000.0}, 'OPEN': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [5.39, 5.9], 'timestamp': '2025-09-09 15:14:30.547288+00:00', 'htf_stop_loss': 3.605714285714286, 'max_duration_seconds': 2592000.0}, 'ORCL': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [242.21, 245.0], 'timestamp': '2025-09-09 15:09:49.448173+00:00', 'htf_stop_loss': 258.40214285714285, 'max_duration_seconds': 2592000.0}, 'PLTR': {'type': 'Bearish', 'score': 18, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [172.29, 173.405], 'timestamp': '2025-09-09 15:09:58.186332+00:00', 'htf_stop_loss': 187.69285714285715, 'max_duration_seconds': 2592000.0}, 'SHOP': {'type': 'Bearish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'sell', 'poi_range': [145.07, 148.585], 'timestamp': '2025-09-09 15:11:15.286205+00:00', 'htf_stop_loss': 156.88071428571428, 'max_duration_seconds': 2592000.0}, 'SITM': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [237.49, 238.61], 'timestamp': '2025-09-09 15:14:20.244125+00:00', 'htf_stop_loss': 217.18857142857144, 'max_duration_seconds': 2592000.0}, 'SONO': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [14.65, 14.73], 'timestamp': '2025-09-09 15:11:33.792094+00:00', 'htf_stop_loss': 13.918571428571429, 'max_duration_seconds': 2592000.0}, 'TSLA': {'type': 'Bullish', 'score': 25, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [338.275, 341.71], 'timestamp': '2025-09-09 15:11:22.538817+00:00', 'htf_stop_loss': 314.15714285714284, 'max_duration_seconds': 2592000.0}, 'GOOGL': {'type': 'Bullish', 'score': 23, 'state': 'awaiting_pullback', 'direction': 'buy', 'poi_range': [232.36, 233.67], 'timestamp': '2025-09-09 14:58:57.351727+00:00', 'htf_stop_loss': 220.64142857142858, 'max_duration_seconds': 2592000.0}, 'ADBE': {'direction': 'sell', 'poi_range': (360.35, 361.92), 'htf_stop_loss': np.float64(379.7557142857143), 'timestamp': datetime.datetime(2025, 9, 11, 13, 54, 43, 967362, tzinfo=datetime.timezone.utc), 'max_duration_seconds': 2592000.0, 'state': 'awaiting_pullback', 'score': 23, 'type': 'Bearish'}, 'CRM': {'direction': 'sell', 'poi_range': (250.02, 250.73), 'htf_stop_loss': np.float64(264.8285714285714), 'timestamp': datetime.datetime(2025, 9, 11, 13, 56, 32, 9446, tzinfo=datetime.timezone.utc), 'max_duration_seconds': 2592000.0, 'state': 'awaiting_pullback', 'score': 23, 'type': 'Bearish'}}, 'daily_equity_start': 98075.14, 'daily_trades_executed': 0, 'current_trading_day': '2025-09-11', 'last_saved': '2025-09-11T13:56:32.009464+00:00'}
+2025-09-11 13:56:32,014 - root - INFO - _find_htf_setup_async:896 - [CRM] New HTF setup added to watchlist. Direction: sell.
+2025-09-11 13:56:32,014 - root - INFO - add_notification:33 - Notification: Setup Found - CRM sell setup added to watchlist
+2025-09-11 13:58:05,799 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $14.40 | PDT: 0/4
+2025-09-11 13:58:37,061 - root - INFO - _check_ltf_confirmation_enhanced:960 - [NVDA] Pullback complete, awaiting MSS
+2025-09-11 13:58:41,507 - root - INFO - _check_ltf_confirmation_enhanced:920 - [ORCL] Watchlist entry invalidated by SL breach
+2025-09-11 13:59:55,962 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-25.20 | PDT: 0/4
+2025-09-11 14:00:08,174 - root - INFO - _check_ltf_confirmation_enhanced:960 - [SHOP] Pullback complete, awaiting MSS
+2025-09-11 14:01:56,551 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $41.04 | PDT: 0/4
+2025-09-11 14:02:17,766 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 14:03:25,460 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-28.80 | PDT: 0/4
+2025-09-11 14:05:26,819 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $38.88 | PDT: 0/4
+2025-09-11 14:07:54,675 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $99.36 | PDT: 0/4
+2025-09-11 14:10:13,798 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.64 | PDT: 0/4
+2025-09-11 14:13:05,291 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $133.20 | PDT: 0/4
+2025-09-11 14:15:01,544 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $156.24 | PDT: 0/4
+2025-09-11 14:15:09,720 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 14:16:47,670 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $90.72 | PDT: 0/4
+2025-09-11 14:19:09,503 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $108.00 | PDT: 0/4
+2025-09-11 14:21:41,172 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $200.15 | PDT: 0/4
+2025-09-11 14:24:00,420 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $168.48 | PDT: 0/4
+2025-09-11 14:25:53,570 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $221.76 | PDT: 0/4
+2025-09-11 14:26:09,564 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 14:27:21,205 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $211.68 | PDT: 0/4
+2025-09-11 14:29:25,696 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $284.40 | PDT: 0/4
+2025-09-11 14:31:57,626 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $271.44 | PDT: 0/4
+2025-09-11 14:34:10,938 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $366.48 | PDT: 0/4
+2025-09-11 14:35:56,342 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $324.00 | PDT: 0/4
+2025-09-11 14:36:24,970 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 14:37:26,144 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $322.56 | PDT: 0/4
+2025-09-11 14:39:05,322 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $325.44 | PDT: 0/4
+2025-09-11 14:40:55,928 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $361.44 | PDT: 0/4
+2025-09-11 14:42:43,978 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $381.05 | PDT: 0/4
+2025-09-11 14:45:00,929 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $348.48 | PDT: 0/4
+2025-09-11 14:46:53,499 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $276.48 | PDT: 0/4
+2025-09-11 14:47:27,293 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 14:48:52,891 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $232.56 | PDT: 0/4
+2025-09-11 14:51:40,985 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $177.84 | PDT: 0/4
+2025-09-11 14:54:32,769 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $56.16 | PDT: 0/4
+2025-09-11 14:56:22,114 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-7.20 | PDT: 0/4
+2025-09-11 14:58:05,474 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $7.20 | PDT: 0/4
+2025-09-11 15:00:46,839 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 15:00:46,843 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 15:00:46,843 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 15:00:46,843 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 15:00:46,941 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 15:00:46,941 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 15:01:08,855 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 15:01:08,855 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 15:01:08,856 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 15:01:08,856 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 15:01:08,916 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 15:01:08,917 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 15:01:09,413 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 15:01:09,415 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 15:01:27,607 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 15:01:27,608 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 15:01:27,608 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 15:01:27,608 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 15:01:27,680 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 15:01:27,681 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 15:01:28,204 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 15:01:28,205 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 15:01:29,457 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 15:01:54,044 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 15:01:54,045 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 15:01:54,045 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 15:01:54,046 - app.agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 15:01:54,048 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 15:01:54,048 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 15:01:54,087 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 15:01:54,883 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,169.46
+2025-09-11 15:01:55,124 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 15:01:55,990 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 15:01:56,489 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,173.05 | Market: OPEN
+2025-09-11 15:01:56,491 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=True
+2025-09-11 15:01:56,497 - root - INFO - _load_agent_state:393 - Loaded agent state: 28 watchlist items, PDT: 0/4
+2025-09-11 15:01:56,968 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $97.91 | PDT: 0/4
+2025-09-11 16:05:46,241 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:05:46,243 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:05:46,244 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:05:46,245 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:05:46,328 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:05:46,330 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:05:46,725 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:05:46,727 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:05:47,634 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:06:03,547 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 16:06:03,547 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 16:06:03,548 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 16:06:03,548 - app.agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 16:06:03,548 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 16:06:03,549 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 16:06:03,585 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 16:06:04,635 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,427.22
+2025-09-11 16:06:04,927 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 16:06:05,681 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 16:06:06,195 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,428.66 | Market: CLOSED
+2025-09-11 16:06:06,195 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 16:06:06,211 - root - INFO - _load_agent_state:393 - Loaded agent state: 28 watchlist items, PDT: 0/4
+2025-09-11 16:06:06,793 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $352.80 | PDT: 0/4
+2025-09-11 16:08:03,260 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $347.04 | PDT: 0/4
+2025-09-11 16:09:54,494 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $355.68 | PDT: 0/4
+2025-09-11 16:10:26,461 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:10:26,461 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:10:26,462 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:10:26,462 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:10:26,525 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:10:26,525 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:10:26,869 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:10:26,871 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:10:27,407 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:11:31,337 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 16:11:31,359 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 16:11:31,360 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 16:11:31,360 - app.agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 16:11:31,361 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 16:11:31,389 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 16:11:31,394 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 16:11:32,374 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,403.10
+2025-09-11 16:11:32,660 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 16:11:33,402 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 16:11:33,875 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,415.70 | Market: CLOSED
+2025-09-11 16:11:33,877 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 16:11:33,882 - root - INFO - _load_agent_state:393 - Loaded agent state: 28 watchlist items, PDT: 0/4
+2025-09-11 16:11:34,348 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $338.40 | PDT: 0/4
+2025-09-11 16:12:36,713 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:12:36,714 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:12:36,714 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:12:36,714 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:12:36,770 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:12:36,771 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:12:37,262 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:12:37,262 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:12:38,238 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:12:43,776 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:12:43,778 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:12:43,779 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:12:43,780 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:12:43,812 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:12:43,813 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:12:44,102 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:12:44,104 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:12:44,678 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:13:03,059 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:13:03,060 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:13:03,063 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:13:03,063 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:13:03,096 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:13:03,099 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:13:03,405 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:13:03,409 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:13:03,997 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:13:10,803 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 16:13:10,804 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 16:13:10,813 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 16:13:10,813 - app.agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 16:13:10,813 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 16:13:10,887 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 16:13:10,891 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 16:13:11,656 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,399.14
+2025-09-11 16:13:11,906 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 16:13:12,723 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 16:13:13,187 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,399.14 | Market: CLOSED
+2025-09-11 16:13:13,188 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 16:13:13,193 - root - INFO - _load_agent_state:393 - Loaded agent state: 28 watchlist items, PDT: 0/4
+2025-09-11 16:13:13,656 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $324.00 | PDT: 0/4
+2025-09-11 16:15:07,172 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $306.72 | PDT: 0/4
+2025-09-11 16:17:45,536 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $300.96 | PDT: 0/4
+2025-09-11 16:23:11,463 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:23:11,466 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:23:11,466 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:23:11,467 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:23:11,549 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:23:11,550 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:23:11,953 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:23:11,954 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:23:12,890 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:23:31,670 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 16:23:31,671 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 16:23:31,672 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 16:23:31,673 - app.agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 16:23:31,674 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 16:23:31,676 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 16:23:32,036 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 16:23:32,807 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,453.14
+2025-09-11 16:23:33,040 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 16:23:34,027 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 16:23:34,492 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,453.14 | Market: CLOSED
+2025-09-11 16:23:34,493 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 16:23:34,602 - root - INFO - _load_agent_state:393 - Loaded agent state: 28 watchlist items, PDT: 0/4
+2025-09-11 16:23:35,073 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $378.00 | PDT: 0/4
+2025-09-11 16:25:22,890 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $324.00 | PDT: 0/4
+2025-09-11 16:27:11,744 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $295.60 | PDT: 0/4
+2025-09-11 16:27:43,747 - root - INFO - _check_ltf_confirmation_enhanced:960 - [NVDA] Pullback complete, awaiting MSS
+2025-09-11 16:27:48,052 - root - INFO - _check_ltf_confirmation_enhanced:920 - [ORCL] Watchlist entry invalidated by SL breach
+2025-09-11 16:29:02,892 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $282.96 | PDT: 0/4
+2025-09-11 16:29:14,861 - root - INFO - _check_ltf_confirmation_enhanced:960 - [SHOP] Pullback complete, awaiting MSS
+2025-09-11 16:30:45,693 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $300.96 | PDT: 0/4
+2025-09-11 16:31:08,125 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 16:32:15,800 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $287.28 | PDT: 0/4
+2025-09-11 16:33:57,407 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $296.64 | PDT: 0/4
+2025-09-11 16:35:47,174 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $262.08 | PDT: 0/4
+2025-09-11 16:37:34,316 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $257.04 | PDT: 0/4
+2025-09-11 16:39:26,979 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $300.96 | PDT: 0/4
+2025-09-11 16:40:59,719 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $272.16 | PDT: 0/4
+2025-09-11 16:41:07,690 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 16:42:35,720 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $282.23 | PDT: 0/4
+2025-09-11 16:44:23,850 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $303.12 | PDT: 0/4
+2025-09-11 16:46:45,091 - root - INFO - setup_logging:78 - Logging configured. Log files will be written to: /home/ubuntu/fast_api_trading/logs
+2025-09-11 16:46:45,092 - root - INFO - setup_logging:79 - Main log: logs/trading_agent.log
+2025-09-11 16:46:45,093 - root - INFO - setup_logging:80 - Error log: logs/trading_errors.log
+2025-09-11 16:46:45,094 - root - INFO - setup_logging:81 - Daily log: logs/daily_20250911.log
+2025-09-11 16:46:45,124 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:46:45,126 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:46:45,404 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 1
+2025-09-11 16:46:45,406 - dotenv.main - WARNING - with_warn_for_invalid_lines:27 - python-dotenv could not parse statement starting at line 7
+2025-09-11 16:46:45,937 - root - INFO - get_db_connection_pool:13 - Connecting to PostgreSQL database... {'dbname': 'paper_trading', 'user': 'postgres', 'host': 'localhost', 'port': '5432'}
+2025-09-11 16:48:51,387 - root - INFO - get_broker:9 - Selected data provider: alpaca
+2025-09-11 16:48:51,387 - root - INFO - get_broker:12 - Using Alpaca as the data and trading provider.
+2025-09-11 16:48:51,388 - root - INFO - __init__:68 - AlpacaBroker initialized. Paper trading: True
+2025-09-11 16:48:51,388 - app.agent.live_orders_manager - INFO - __init__:85 - LiveOrdersManager initialized with trailing stop support
+2025-09-11 16:48:51,388 - root - INFO - __init__:60 - PDT Management: Enabled (Limit: 4 trades/day)
+2025-09-11 16:48:51,389 - root - INFO - run_async:119 - Trading Agent's async loop started.
+2025-09-11 16:48:51,391 - root - INFO - start_monitoring:95 - Live orders monitoring started.
+2025-09-11 16:48:52,103 - root - INFO - validate_connection:381 - Account access OK. Equity: $98,370.33
+2025-09-11 16:48:52,336 - root - INFO - validate_connection:386 - Trading access OK. Current positions: 1
+2025-09-11 16:48:53,072 - root - INFO - validate_connection:402 - Data access OK. Retrieved 4 bars for AAPL
+2025-09-11 16:48:53,537 - root - INFO - _update_status:69 - Services connected. Account Equity: $98,370.33 | Market: CLOSED
+2025-09-11 16:48:53,537 - root - INFO - _connect_services:100 - Broker validation: Account=True, Trading=True, Data=True, Market Open=False
+2025-09-11 16:48:53,540 - root - INFO - _load_agent_state:393 - Loaded agent state: 28 watchlist items, PDT: 0/4
+2025-09-11 16:48:54,006 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $295.19 | PDT: 0/4
+2025-09-11 16:50:41,409 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $197.28 | PDT: 0/4
+2025-09-11 16:51:05,925 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:05,929 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:08,576 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for AAPL at 1d timeframe
+2025-09-11 16:51:11,594 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:11,595 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:12,003 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for AAPL at 1d timeframe
+2025-09-11 16:52:01,792 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:52:01,792 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:52:02,209 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for AAPL at 1d timeframe
+2025-09-11 16:52:29,352 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $144.00 | PDT: 0/4
+2025-09-11 16:53:01,074 - root - INFO - _check_ltf_confirmation_enhanced:960 - [NVDA] Pullback complete, awaiting MSS
+2025-09-11 16:53:05,545 - root - INFO - _check_ltf_confirmation_enhanced:920 - [ORCL] Watchlist entry invalidated by SL breach
+2025-09-11 16:54:20,150 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 16:54:31,931 - root - INFO - _check_ltf_confirmation_enhanced:960 - [SHOP] Pullback complete, awaiting MSS
+2025-09-11 16:56:02,695 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 16:56:25,164 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 16:57:05,412 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for AAPL at 1d timeframe
+2025-09-11 16:57:32,764 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $151.92 | PDT: 0/4
+2025-09-11 16:57:45,178 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for AAPL at 1d timeframe
+2025-09-11 16:57:50,191 - root - INFO - _fetch_live_data:184 - Fetched 22 data points for IBM at 1d timeframe
+2025-09-11 16:59:14,744 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.83 | PDT: 0/4
+2025-09-11 17:01:05,047 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $93.60 | PDT: 0/4
+2025-09-11 17:03:05,190 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $66.24 | PDT: 0/4
+2025-09-11 17:04:53,106 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $46.80 | PDT: 0/4
+2025-09-11 17:06:30,840 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $51.84 | PDT: 0/4
+2025-09-11 17:06:38,383 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 17:08:07,103 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $72.72 | PDT: 0/4
+2025-09-11 17:09:54,687 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $84.96 | PDT: 0/4
+2025-09-11 17:11:46,295 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $77.04 | PDT: 0/4
+2025-09-11 17:13:35,355 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $81.63 | PDT: 0/4
+2025-09-11 17:15:18,577 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $83.52 | PDT: 0/4
+2025-09-11 17:15:40,822 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 17:16:52,049 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $82.09 | PDT: 0/4
+2025-09-11 17:18:41,310 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $48.96 | PDT: 0/4
+2025-09-11 17:20:29,748 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $67.68 | PDT: 0/4
+2025-09-11 17:22:16,797 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $86.40 | PDT: 0/4
+2025-09-11 17:24:07,523 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $53.28 | PDT: 0/4
+2025-09-11 17:24:36,691 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 17:25:37,864 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $48.96 | PDT: 0/4
+2025-09-11 17:27:17,357 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $11.52 | PDT: 0/4
+2025-09-11 17:29:08,158 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-17.28 | PDT: 0/4
+2025-09-11 17:30:54,997 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1.44 | PDT: 0/4
+2025-09-11 17:32:44,501 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $34.56 | PDT: 0/4
+2025-09-11 17:34:20,749 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $48.96 | PDT: 0/4
+2025-09-11 17:34:34,271 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 17:35:53,181 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $15.84 | PDT: 0/4
+2025-09-11 17:37:42,677 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1.44 | PDT: 0/4
+2025-09-11 17:39:31,672 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-25.20 | PDT: 0/4
+2025-09-11 17:41:27,556 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-13.68 | PDT: 0/4
+2025-09-11 17:43:10,890 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-13.68 | PDT: 0/4
+2025-09-11 17:43:32,367 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 17:44:39,986 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-12.95 | PDT: 0/4
+2025-09-11 17:46:31,624 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-31.68 | PDT: 0/4
+2025-09-11 17:48:22,219 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-47.52 | PDT: 0/4
+2025-09-11 17:50:10,095 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-55.44 | PDT: 0/4
+2025-09-11 17:52:01,181 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-38.16 | PDT: 0/4
+2025-09-11 17:53:36,696 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-61.92 | PDT: 0/4
+2025-09-11 17:53:44,361 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 17:55:12,504 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-51.12 | PDT: 0/4
+2025-09-11 17:57:02,710 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-59.04 | PDT: 0/4
+2025-09-11 17:58:56,918 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-43.92 | PDT: 0/4
+2025-09-11 18:00:44,247 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-47.52 | PDT: 0/4
+2025-09-11 18:02:31,995 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-50.40 | PDT: 0/4
+2025-09-11 18:02:47,533 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:04:00,366 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-57.31 | PDT: 0/4
+2025-09-11 18:05:50,487 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-72.00 | PDT: 0/4
+2025-09-11 18:07:40,393 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-80.64 | PDT: 0/4
+2025-09-11 18:09:33,302 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-22.32 | PDT: 0/4
+2025-09-11 18:11:21,643 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $41.76 | PDT: 0/4
+2025-09-11 18:11:50,466 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:12:51,637 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-34.56 | PDT: 0/4
+2025-09-11 18:14:30,918 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-61.20 | PDT: 0/4
+2025-09-11 18:16:27,407 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-57.60 | PDT: 0/4
+2025-09-11 18:18:16,482 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-66.24 | PDT: 0/4
+2025-09-11 18:20:04,134 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-74.88 | PDT: 0/4
+2025-09-11 18:21:44,841 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-77.76 | PDT: 0/4
+2025-09-11 18:21:59,266 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:23:18,994 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-72.00 | PDT: 0/4
+2025-09-11 18:25:06,829 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-53.28 | PDT: 0/4
+2025-09-11 18:26:58,471 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-54.72 | PDT: 0/4
+2025-09-11 18:28:52,768 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-40.32 | PDT: 0/4
+2025-09-11 18:30:35,769 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-56.16 | PDT: 0/4
+2025-09-11 18:31:03,955 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:32:12,076 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $3.57 | PDT: 0/4
+2025-09-11 18:33:54,935 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-5.04 | PDT: 0/4
+2025-09-11 18:35:45,102 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-33.12 | PDT: 0/4
+2025-09-11 18:37:31,239 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-6.48 | PDT: 0/4
+2025-09-11 18:39:19,474 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $33.12 | PDT: 0/4
+2025-09-11 18:40:52,349 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-23.76 | PDT: 0/4
+2025-09-11 18:41:00,183 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:42:28,407 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-5.76 | PDT: 0/4
+2025-09-11 18:44:15,909 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $6.48 | PDT: 0/4
+2025-09-11 18:46:05,012 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-5.04 | PDT: 0/4
+2025-09-11 18:47:53,262 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $19.44 | PDT: 0/4
+2025-09-11 18:49:36,635 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $22.92 | PDT: 0/4
+2025-09-11 18:49:51,700 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:51:02,665 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $81.36 | PDT: 0/4
+2025-09-11 18:52:57,541 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $89.28 | PDT: 0/4
+2025-09-11 18:54:46,549 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $103.68 | PDT: 0/4
+2025-09-11 18:56:33,628 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $64.80 | PDT: 0/4
+2025-09-11 18:58:18,890 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $34.56 | PDT: 0/4
+2025-09-11 18:58:47,096 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 18:59:48,260 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $57.60 | PDT: 0/4
+2025-09-11 19:01:40,864 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $56.17 | PDT: 0/4
+2025-09-11 19:03:31,145 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $56.16 | PDT: 0/4
+2025-09-11 19:05:17,912 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $60.48 | PDT: 0/4
+2025-09-11 19:07:04,464 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $54.72 | PDT: 0/4
+2025-09-11 19:08:44,648 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $48.24 | PDT: 0/4
+2025-09-11 19:08:57,808 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 19:10:17,860 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $25.92 | PDT: 0/4
+2025-09-11 19:12:04,419 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $27.36 | PDT: 0/4
+2025-09-11 19:13:51,910 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $23.76 | PDT: 0/4
+2025-09-11 19:15:42,105 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $30.24 | PDT: 0/4
+2025-09-11 19:17:26,870 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $10.08 | PDT: 0/4
+2025-09-11 19:17:47,999 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 19:18:55,624 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $20.16 | PDT: 0/4
+2025-09-11 19:20:40,036 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $31.82 | PDT: 0/4
+2025-09-11 19:22:33,168 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $27.36 | PDT: 0/4
+2025-09-11 19:24:22,375 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $40.32 | PDT: 0/4
+2025-09-11 19:26:10,754 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $49.68 | PDT: 0/4
+2025-09-11 19:27:45,519 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $48.96 | PDT: 0/4
+2025-09-11 19:27:53,492 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 19:29:23,177 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $48.24 | PDT: 0/4
+2025-09-11 19:31:15,708 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $67.68 | PDT: 0/4
+2025-09-11 19:33:13,035 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $36.00 | PDT: 0/4
+2025-09-11 19:35:04,536 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $53.28 | PDT: 0/4
+2025-09-11 19:36:58,589 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $46.08 | PDT: 0/4
+2025-09-11 19:37:15,045 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 19:38:25,764 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $54.72 | PDT: 0/4
+2025-09-11 19:40:29,651 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $51.12 | PDT: 0/4
+2025-09-11 19:42:22,115 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $33.12 | PDT: 0/4
+2025-09-11 19:44:10,552 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $38.88 | PDT: 0/4
+2025-09-11 19:45:58,587 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $28.80 | PDT: 0/4
+2025-09-11 19:46:30,692 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 19:47:31,868 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $46.08 | PDT: 0/4
+2025-09-11 19:48:00,749 - root - INFO - _check_ltf_confirmation_enhanced:972 - [AAPL] MSS confirmed with volume
+2025-09-11 19:49:13,412 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $27.36 | PDT: 0/4
+2025-09-11 19:51:06,480 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $61.92 | PDT: 0/4
+2025-09-11 19:52:55,069 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $138.96 | PDT: 0/4
+2025-09-11 19:54:46,166 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $149.76 | PDT: 0/4
+2025-09-11 19:56:28,764 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $104.40 | PDT: 0/4
+2025-09-11 19:56:41,927 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 19:58:00,738 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $131.04 | PDT: 0/4
+2025-09-11 19:59:48,828 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $70.56 | PDT: 0/4
+2025-09-11 20:01:52,872 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:03:46,760 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:05:31,662 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:05:52,562 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 20:07:00,266 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:08:46,404 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $162.72 | PDT: 0/4
+2025-09-11 20:10:37,922 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $162.72 | PDT: 0/4
+2025-09-11 20:12:25,904 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $144.00 | PDT: 0/4
+2025-09-11 20:14:14,441 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $119.52 | PDT: 0/4
+2025-09-11 20:15:49,745 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $99.36 | PDT: 0/4
+2025-09-11 20:15:58,347 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 20:16:25,136 - root - INFO - _check_ltf_confirmation_enhanced:960 - [ADBE] Pullback complete, awaiting MSS
+2025-09-11 20:17:26,300 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $99.36 | PDT: 0/4
+2025-09-11 20:19:15,261 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $128.16 | PDT: 0/4
+2025-09-11 20:21:09,623 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $109.01 | PDT: 0/4
+2025-09-11 20:23:03,911 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.19 | PDT: 0/4
+2025-09-11 20:24:48,583 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $136.80 | PDT: 0/4
+2025-09-11 20:25:03,414 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 20:26:14,343 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $136.80 | PDT: 0/4
+2025-09-11 20:28:04,776 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $125.28 | PDT: 0/4
+2025-09-11 20:29:52,345 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.64 | PDT: 0/4
+2025-09-11 20:31:58,296 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $112.32 | PDT: 0/4
+2025-09-11 20:33:43,578 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $112.32 | PDT: 0/4
+2025-09-11 20:34:11,651 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 20:35:12,813 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $112.32 | PDT: 0/4
+2025-09-11 20:36:52,738 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:38:43,004 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:40:31,227 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:42:18,183 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:43:54,329 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 20:44:08,071 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 20:45:27,552 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 20:47:16,115 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 20:49:03,972 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 20:50:55,042 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 20:52:37,035 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 20:52:58,303 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 20:54:06,213 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 20:55:51,069 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $151.20 | PDT: 0/4
+2025-09-11 20:57:42,753 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $126.72 | PDT: 0/4
+2025-09-11 20:59:28,046 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:01:19,283 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:02:55,161 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:03:02,955 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 21:04:30,964 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:06:18,159 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:08:13,637 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:10:01,213 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:11:44,581 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:11:59,790 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 21:13:10,510 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $92.16 | PDT: 0/4
+2025-09-11 21:15:02,267 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $119.52 | PDT: 0/4
+2025-09-11 21:16:51,720 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $146.88 | PDT: 0/4
+2025-09-11 21:18:39,519 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $146.88 | PDT: 0/4
+2025-09-11 21:20:25,801 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.64 | PDT: 0/4
+2025-09-11 21:20:54,325 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 21:21:55,484 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.64 | PDT: 0/4
+2025-09-11 21:23:36,105 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.64 | PDT: 0/4
+2025-09-11 21:25:28,891 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $116.64 | PDT: 0/4
+2025-09-11 21:27:19,344 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $105.12 | PDT: 0/4
+2025-09-11 21:29:07,647 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $93.60 | PDT: 0/4
+2025-09-11 21:30:45,110 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $257.76 | PDT: 0/4
+2025-09-11 21:30:59,530 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 21:32:19,058 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $698.40 | PDT: 0/4
+2025-09-11 21:34:10,189 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1602.72 | PDT: 0/4
+2025-09-11 21:36:03,778 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1725.12 | PDT: 0/4
+2025-09-11 21:37:59,527 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1530.72 | PDT: 0/4
+2025-09-11 21:39:41,827 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1304.91 | PDT: 0/4
+2025-09-11 21:40:02,915 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 21:41:11,792 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1611.36 | PDT: 0/4
+2025-09-11 21:42:53,245 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1745.28 | PDT: 0/4
+2025-09-11 21:44:47,787 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1530.72 | PDT: 0/4
+2025-09-11 21:46:36,942 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1604.16 | PDT: 0/4
+2025-09-11 21:48:26,038 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1710.71 | PDT: 0/4
+2025-09-11 21:50:02,956 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1768.32 | PDT: 0/4
+2025-09-11 21:50:11,095 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 21:51:39,770 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1883.52 | PDT: 0/4
+2025-09-11 21:53:29,432 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1860.48 | PDT: 0/4
+2025-09-11 21:55:17,907 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1876.32 | PDT: 0/4
+2025-09-11 21:57:05,493 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1892.16 | PDT: 0/4
+2025-09-11 21:58:48,419 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1961.28 | PDT: 0/4
+2025-09-11 21:59:02,675 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:00:14,038 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1890.72 | PDT: 0/4
+2025-09-11 22:02:04,743 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1905.12 | PDT: 0/4
+2025-09-11 22:03:51,708 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1890.72 | PDT: 0/4
+2025-09-11 22:05:41,388 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1932.48 | PDT: 0/4
+2025-09-11 22:07:29,999 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1749.60 | PDT: 0/4
+2025-09-11 22:07:59,935 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:09:01,105 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1674.72 | PDT: 0/4
+2025-09-11 22:10:42,196 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1746.72 | PDT: 0/4
+2025-09-11 22:12:32,461 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1788.48 | PDT: 0/4
+2025-09-11 22:14:18,003 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1674.72 | PDT: 0/4
+2025-09-11 22:16:04,940 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1530.43 | PDT: 0/4
+2025-09-11 22:17:41,293 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1448.41 | PDT: 0/4
+2025-09-11 22:17:54,438 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:19:13,226 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1444.32 | PDT: 0/4
+2025-09-11 22:20:59,764 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1452.93 | PDT: 0/4
+2025-09-11 22:22:49,147 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1444.32 | PDT: 0/4
+2025-09-11 22:24:39,583 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1278.84 | PDT: 0/4
+2025-09-11 22:26:21,481 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1287.36 | PDT: 0/4
+2025-09-11 22:26:42,351 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:27:50,265 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1285.92 | PDT: 0/4
+2025-09-11 22:29:31,850 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1314.72 | PDT: 0/4
+2025-09-11 22:31:21,857 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1357.98 | PDT: 0/4
+2025-09-11 22:33:09,128 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1340.64 | PDT: 0/4
+2025-09-11 22:34:56,862 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1321.37 | PDT: 0/4
+2025-09-11 22:36:29,452 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1332.00 | PDT: 0/4
+2025-09-11 22:36:37,197 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:38:04,115 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1340.64 | PDT: 0/4
+2025-09-11 22:39:50,969 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1359.36 | PDT: 0/4
+2025-09-11 22:41:39,283 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1281.60 | PDT: 0/4
+2025-09-11 22:43:25,351 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1223.99 | PDT: 0/4
+2025-09-11 22:45:07,790 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1212.15 | PDT: 0/4
+2025-09-11 22:45:23,313 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:46:34,193 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1242.72 | PDT: 0/4
+2025-09-11 22:48:27,203 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1260.00 | PDT: 0/4
+2025-09-11 22:50:19,539 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1192.32 | PDT: 0/4
+2025-09-11 22:52:07,096 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1242.72 | PDT: 0/4
+2025-09-11 22:53:53,334 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1270.08 | PDT: 0/4
+2025-09-11 22:54:22,934 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 22:55:24,173 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1264.32 | PDT: 0/4
+2025-09-11 22:57:05,745 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1198.08 | PDT: 0/4
+2025-09-11 22:58:58,603 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1182.25 | PDT: 0/4
+2025-09-11 23:00:47,271 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1206.72 | PDT: 0/4
+2025-09-11 23:02:40,103 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1199.52 | PDT: 0/4
+2025-09-11 23:04:20,628 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1221.13 | PDT: 0/4
+2025-09-11 23:04:35,399 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 23:05:57,499 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1196.64 | PDT: 0/4
+2025-09-11 23:07:52,218 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1242.72 | PDT: 0/4
+2025-09-11 23:09:46,787 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1242.72 | PDT: 0/4
+2025-09-11 23:11:43,402 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1193.76 | PDT: 0/4
+2025-09-11 23:13:31,735 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1241.28 | PDT: 0/4
+2025-09-11 23:13:53,905 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 23:15:01,714 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1231.20 | PDT: 0/4
+2025-09-11 23:16:46,504 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1257.12 | PDT: 0/4
+2025-09-11 23:18:42,773 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1305.01 | PDT: 0/4
+2025-09-11 23:20:37,803 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1304.63 | PDT: 0/4
+2025-09-11 23:22:31,547 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1319.04 | PDT: 0/4
+2025-09-11 23:24:08,385 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1357.92 | PDT: 0/4
+2025-09-11 23:24:17,077 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 23:25:48,165 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1329.12 | PDT: 0/4
+2025-09-11 23:27:42,923 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1349.28 | PDT: 0/4
+2025-09-11 23:29:36,768 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1383.84 | PDT: 0/4
+2025-09-11 23:31:29,545 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1372.32 | PDT: 0/4
+2025-09-11 23:33:18,347 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1384.55 | PDT: 0/4
+2025-09-11 23:33:34,967 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 23:34:47,114 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1365.12 | PDT: 0/4
+2025-09-11 23:36:40,963 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1321.93 | PDT: 0/4
+2025-09-11 23:38:35,126 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1321.92 | PDT: 0/4
+2025-09-11 23:40:24,257 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1363.85 | PDT: 0/4
+2025-09-11 23:42:13,678 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1293.12 | PDT: 0/4
+2025-09-11 23:42:46,382 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 23:43:47,756 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1338.68 | PDT: 0/4
+2025-09-11 23:45:32,163 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1346.40 | PDT: 0/4
+2025-09-11 23:47:28,400 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1386.72 | PDT: 0/4
+2025-09-11 23:49:21,136 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1385.27 | PDT: 0/4
+2025-09-11 23:51:16,928 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1375.75 | PDT: 0/4
+2025-09-11 23:52:56,046 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1385.28 | PDT: 0/4
+2025-09-11 23:53:10,414 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-11 23:54:31,329 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1372.32 | PDT: 0/4
+2025-09-11 23:56:25,377 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1385.28 | PDT: 0/4
+2025-09-11 23:58:18,407 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $1385.28 | PDT: 0/4
+2025-09-12 00:00:10,951 - root - INFO - _reset_daily_pdt_counter:197 - New trading day: 2025-09-12. PDT counter reset to 0/4
+2025-09-12 00:00:11,509 - root - INFO - _update_daily_equity_tracking:432 - New trading day started. Starting equity: $99461.86
+2025-09-12 00:00:11,785 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:01:59,289 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:02:22,936 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 00:03:32,135 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:05:24,367 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:07:23,264 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:09:16,428 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:11:11,212 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:12:47,947 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:12:56,405 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 00:14:27,375 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:16:22,247 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:18:16,804 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:20:10,123 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:21:57,889 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:22:14,857 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 00:23:27,310 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:25:21,226 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:27:16,136 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:29:08,534 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:30:56,779 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:31:26,109 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 00:32:27,405 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:34:12,186 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:36:10,276 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:38:03,561 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:39:53,729 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:41:31,722 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:41:45,544 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 00:43:04,980 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:44:54,300 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:46:45,002 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:48:36,939 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:50:21,308 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:50:42,891 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 00:51:52,195 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:53:36,789 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:55:31,574 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:57:23,603 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 00:59:17,194 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:00:53,620 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:01:03,084 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:02:34,298 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:04:26,215 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:06:15,675 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:08:03,720 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:09:46,812 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:10:02,153 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:11:13,214 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:13:03,638 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:14:53,109 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:16:40,588 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:18:26,858 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:18:57,633 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:19:58,869 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:21:39,562 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:23:34,395 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:25:24,882 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:27:12,180 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:28:49,082 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:29:02,074 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:30:21,762 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:32:07,383 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:33:54,099 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:35:42,409 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:37:24,380 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:37:45,009 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:38:52,516 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:40:33,961 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:42:23,257 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:44:08,019 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:45:54,495 - root - ERROR - _run_analysis_cycle:639 - Critical error in PDT-aware analysis cycle: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/agent.py", line 588, in _run_analysis_cycle
+    account = await self.broker.get_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 117, in get_account
+    return await self._retry_async(self.api.get_account)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/trading/client.py", line 474, in get_account
+    response = self.get("/account")
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:55,625 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:46:56,088 - root - ERROR - get_bars:362 - Unexpected error fetching bars for MSFT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 322, in get_bars
+    bars = await self._retry_async(self.data_api.get_stock_bars, request_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/data/historical/stock.py", line 87, in get_stock_bars
+    raw_bars = self._get_marketdata(
+        path="/stocks/bars",
+        params=request_params.to_request_fields(),
+        page_size=10_000,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 393, in _get_marketdata
+    response = self.get(path=path, data=params)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:56,096 - root - WARNING - fetch_bars:667 - No data returned for MSFT itf
+2025-09-12 01:46:56,096 - root - ERROR - get_bars:362 - Unexpected error fetching bars for MSFT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 322, in get_bars
+    bars = await self._retry_async(self.data_api.get_stock_bars, request_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/data/historical/stock.py", line 87, in get_stock_bars
+    raw_bars = self._get_marketdata(
+        path="/stocks/bars",
+        params=request_params.to_request_fields(),
+        page_size=10_000,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 393, in _get_marketdata
+    response = self.get(path=path, data=params)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:56,101 - root - WARNING - fetch_bars:667 - No data returned for MSFT htf
+2025-09-12 01:46:56,101 - root - ERROR - get_bars:362 - Unexpected error fetching bars for MSFT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 322, in get_bars
+    bars = await self._retry_async(self.data_api.get_stock_bars, request_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/data/historical/stock.py", line 87, in get_stock_bars
+    raw_bars = self._get_marketdata(
+        path="/stocks/bars",
+        params=request_params.to_request_fields(),
+        page_size=10_000,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 393, in _get_marketdata
+    response = self.get(path=path, data=params)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:56,106 - root - WARNING - fetch_bars:667 - No data returned for MSFT ltf
+2025-09-12 01:48:24,327 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:48:32,207 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:49:59,263 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:51:45,699 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:53:32,803 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:55:18,938 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:56:59,830 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 01:57:14,908 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 01:58:26,506 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 02:00:16,396 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 02:02:07,133 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $0.00 | PDT: 0/4
+2025-09-12 02:03:53,523 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:05:37,700 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:06:05,105 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 02:07:06,282 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:08:45,130 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:10:35,183 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:12:20,850 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:14:07,904 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:15:43,344 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:15:56,436 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 02:17:14,696 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:19:00,124 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:20:47,140 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:22:35,859 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:24:17,586 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:24:37,989 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 02:25:45,639 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:27:26,941 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:29:15,232 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:30:59,179 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:32:45,354 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:34:17,828 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:34:25,295 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 02:35:52,300 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:37:38,348 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:39:25,755 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:41:11,691 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:42:53,001 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:43:08,174 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 02:44:19,268 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:46:07,062 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:47:55,204 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:49:39,749 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:51:24,247 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:51:51,922 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 02:52:53,102 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:54:31,624 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:56:20,693 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:58:06,469 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 02:59:51,867 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:01:27,677 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:01:40,773 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 03:02:59,899 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:04:46,102 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:06:33,494 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:08:22,189 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:10:04,381 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:10:25,101 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 03:11:32,545 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:13:14,192 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:15:03,273 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:16:47,970 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:18:34,984 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:20:08,174 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:20:15,672 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 03:21:42,541 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:23:28,723 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:25:16,497 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:27:04,146 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:28:45,349 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:29:00,354 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 03:30:11,324 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:31:59,161 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:33:47,171 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:35:31,642 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:37:16,325 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:37:44,475 - root - WARNING - _find_htf_setup_async:809 - Insufficient HTF data for ALMU setup analysis
+2025-09-12 03:38:45,659 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:40:24,202 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4
+2025-09-12 03:42:14,158 - root - INFO - _update_status:69 - Analyzing 10/54 symbols... Daily P&L: $-1294.56 | PDT: 0/4

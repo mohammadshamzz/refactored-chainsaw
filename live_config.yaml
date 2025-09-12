@@ -1,0 +1,123 @@
+# Alpaca Broker Configuration
+alpaca:
+  paper_trading: true # Set to false for live money. START WITH TRUE.
+
+# Data Provider ('yfinance' for free data, 'alpaca' for broker data)
+data_provider: alpaca
+
+# Database Configuration
+database:
+  type: postgres
+  file: 'live_trading.db' # The file where all trading data will be stored
+
+# Agent Core Settings
+agent:
+  sleep_interval_seconds: 60 # How often to run the analysis cycle (in seconds)
+
+# PDT Management (ADDED FROM BACKTEST)
+pdt_management:
+  enabled: true
+  daily_trade_limit: 4
+
+# Notification Settings
+notifications:
+  email_enabled: true
+  discord_enabled: true
+
+# Trading Strategy Parameters (Replicated from backtest)
+timeframes:
+  htf: 1d
+  itf: 4h
+  ltf: 15m
+
+trading:
+  # --- Setup Quality & Selectivity ---
+  min_confluence_score: 20
+  min_confluence_score_fvg: 15
+  max_atr_distance_for_poi: 8.0
+
+  # --- Risk & Reward Engine --- (ALIGNED WITH BACKTEST)
+  account_risk_percent: 5.0 # Risk 5% of account equity per trade (CHANGED from 1.0)
+  max_positions: 5
+  max_daily_loss_percent: 3.0 # Stop trading if daily loss exceeds this %
+
+  # --- Dynamic Logic ---
+  min_dynamic_rr_ratio: 1.5
+  min_risk_to_reward_ratio: 1.5 # Added for backtest compatibility
+  swing_orders:
+    trending: 5
+    ranging: 3
+    volatile: 2
+
+  # --- Core Filters --- (ALIGNED WITH BACKTEST)
+  regime_filter_enabled: false
+  use_mtf_confirmation: true
+  mtf_confirmation_mode: "strict"
+  use_correlation_filter: true
+  correlation_threshold: 0.70 # CHANGED from 0.80 to match backtest
+  correlation_lookback_days: 30 # ADDED missing parameter
+  volume_factor: 1.5 # Added for volume confirmation
+
+  # --- Trade Management --- (ALIGNED WITH BACKTEST)
+  use_trailing_stops: true
+  trailing_stop_atr_period: 10 # Added for consistency
+  trailing_stop_atr_multiplier: 3.0 # CHANGED from 2.5 to match backtest
+  atr_multiplier_for_sl: 2.0
+  watchlist_ttl_bars: 30
+
+  # --- Instrument List ---
+  instruments:
+    - AAPL
+    - ADBE
+    - ACN
+    - ADI
+    - AMD
+    - AMAT
+    - AMZN
+    - ANET
+    - ARM
+    - ASML
+    - AVGO
+    - CRM
+    - CSCO
+    - GOOG
+    - GOOGL
+    - IBM
+    - INTC
+    - INTU
+    - KLAC
+    - LRCX
+    - META
+    - MSFT
+    - MU
+    - NFLX
+    - NOW
+    - NVDA
+    - ORCL
+    - PANW
+    - PLTR
+    - QCOM
+    - SAP
+    - SHOP
+    - SNPS
+    - TSLA
+    - TSM
+    - TXN
+    - SONO
+    - CRWD
+    - NET
+    - FTNT
+    - XYZ
+    - CRWV
+    - DFDV
+    - SUPX
+    - AEVA
+    - IOT
+    - LASR
+    - ALMU
+    - CRDO
+    - NVTS
+    - SITM
+    - SNDK
+    - WDC
+    - OPEN

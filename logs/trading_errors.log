@@ -1,0 +1,1147 @@
+2025-09-09 18:53:37,931 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:53:37,931 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $97987.30: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:53:43,603 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $496.24: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 18:53:48,963 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 1: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:53:55,873 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 2: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:53:58,988 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 3: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:54:15,449 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 4: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:54:19,382 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 5: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:54:25,251 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 6: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:55:26,195 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:55:26,195 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $97987.30: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:55:30,987 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $496.52: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 18:55:49,474 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 7: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:55:54,354 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 8: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:56:06,526 - root - ERROR - _save_agent_state:349 - Error saving agent state - watchlist items: 9: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 346, in _save_agent_state
+    await execute_db_query(self.db_pool, query, (json.dumps(state_data), datetime.now()))
+                                                 ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+2025-09-09 18:56:41,258 - root - ERROR - _load_agent_state:405 - Error loading agent state from database: the JSON object must be str, bytes or bytearray, not dict
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 381, in _load_agent_state
+    state_data = json.loads(result['state_data'])
+  File "C:\Python313\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+                    f'not {s.__class__.__name__}')
+TypeError: the JSON object must be str, bytes or bytearray, not dict
+2025-09-09 18:56:41,501 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:56:41,501 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $0.00: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:56:47,011 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $496.30: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 18:58:29,088 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:58:29,089 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $0.00: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 18:58:34,004 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $496.15: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 19:00:13,527 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 19:00:13,527 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $0.00: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 19:00:19,483 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $496.28: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 19:00:27,346 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for AAPL: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:00:38,248 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ACN: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:00:42,395 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ADI: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:01:00,512 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for AMZN: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:01:07,611 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ANET: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:01:15,848 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ASML: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:02:16,779 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 19:02:16,780 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $0.00: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 19:02:21,540 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $495.75: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 19:02:38,107 - root - ERROR - execute_db_query:48 - Database query failed: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 19:02:38,108 - root - ERROR - _update_daily_equity_tracking:440 - Error updating daily equity tracking - start equity: $0.00: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 421, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\.venv\Lib\site-packages\psycopg2\extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_equity_tracking" does not exist
+LINE 2: ...           SELECT equity_start, date_tracked FROM daily_equi...
+                                                             ^
+
+2025-09-09 19:02:43,452 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $495.86: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 19:02:48,999 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for AAPL: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:02:55,751 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ACN: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:02:59,026 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ADI: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:03:15,160 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for AMZN: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:03:19,289 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ANET: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:03:25,124 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ASML: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:04:27,830 - root - ERROR - _update_trailing_stop:326 - Error updating trailing stop for MSFT - side: buy, new_stop: $495.73: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 308, in _update_trailing_stop
+    orders = await self.broker.get_orders(symbol=symbol, status='open')
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlpacaBroker.get_orders() got an unexpected keyword argument 'symbol'
+2025-09-09 19:04:33,172 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for AAPL: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:04:39,890 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ACN: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:04:43,240 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ADI: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:04:57,237 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for AMZN: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:05:01,075 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ANET: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:05:07,959 - root - ERROR - _collect_and_rank_trade_candidates:530 - Error collecting trade candidate for ASML: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+Traceback (most recent call last):
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 518, in _collect_and_rank_trade_candidates
+    trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 744, in _analyze_symbol_for_signal
+    return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\workspace\fast_api_trading_platform\app\agent\agent.py", line 931, in _check_ltf_confirmation_enhanced
+    if (datetime.now(timezone.utc) - setup_info['timestamp']).total_seconds() > setup_info['max_duration_seconds']:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-09-09 19:34:29,023 - root - ERROR - execute_db_query:48 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 19:34:29,023 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:23:29,701 - root - ERROR - execute_db_query:48 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:23:29,701 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:23:43,159 - root - ERROR - execute_db_query:48 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:23:43,159 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:23:46,035 - root - ERROR - execute_db_query:48 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:23:46,035 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:46:21,450 - root - ERROR - execute_db_query:48 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-09 22:46:21,450 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-10 20:58:02,116 - root - ERROR - execute_db_query:48 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-10 20:58:02,216 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 06:06:12,462 - root - ERROR - execute_db_query:48 - Database query failed: SSL connection has been closed unexpectedly
+
+2025-09-11 06:06:12,465 - root - ERROR - _update_daily_equity_tracking:437 - Error updating daily equity tracking - start equity: $98075.14: connection already closed
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/database.py", line 37, in execute_db_query
+    cur.execute(query, params or ())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/psycopg2/extras.py", line 146, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.OperationalError: SSL connection has been closed unexpectedly
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/agent.py", line 418, in _update_daily_equity_tracking
+    result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/database.py", line 50, in execute_db_query
+    conn.rollback()
+    ~~~~~~~~~~~~~^^
+psycopg2.InterfaceError: connection already closed
+2025-09-11 13:55:46,778 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 13:55:46,778 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:05,925 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:05,929 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:11,594 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:51:11,595 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:52:01,792 - root - ERROR - execute_db_query:58 - Database query failed: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-11 16:52:01,792 - root - ERROR - _get_market_data_from_db:127 - Error getting data from database: relation "market_data" does not exist
+LINE 3:             FROM market_data 
+                         ^
+
+2025-09-12 01:45:54,495 - root - ERROR - _run_analysis_cycle:639 - Critical error in PDT-aware analysis cycle: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/agent.py", line 588, in _run_analysis_cycle
+    account = await self.broker.get_account()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 117, in get_account
+    return await self._retry_async(self.api.get_account)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/trading/client.py", line 474, in get_account
+    response = self.get("/account")
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:56,088 - root - ERROR - get_bars:362 - Unexpected error fetching bars for MSFT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 322, in get_bars
+    bars = await self._retry_async(self.data_api.get_stock_bars, request_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/data/historical/stock.py", line 87, in get_stock_bars
+    raw_bars = self._get_marketdata(
+        path="/stocks/bars",
+        params=request_params.to_request_fields(),
+        page_size=10_000,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 393, in _get_marketdata
+    response = self.get(path=path, data=params)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:56,096 - root - ERROR - get_bars:362 - Unexpected error fetching bars for MSFT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 322, in get_bars
+    bars = await self._retry_async(self.data_api.get_stock_bars, request_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/data/historical/stock.py", line 87, in get_stock_bars
+    raw_bars = self._get_marketdata(
+        path="/stocks/bars",
+        params=request_params.to_request_fields(),
+        page_size=10_000,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 393, in _get_marketdata
+    response = self.get(path=path, data=params)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-09-12 01:46:56,101 - root - ERROR - get_bars:362 - Unexpected error fetching bars for MSFT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 552, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+        conn,
+    ...<5 lines>...
+        chunked=chunked,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 322, in get_bars
+    bars = await self._retry_async(self.data_api.get_stock_bars, request_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/app/agent/alpaca_broker.py", line 88, in _retry_async
+    return await asyncio.to_thread(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/data/historical/stock.py", line 87, in get_stock_bars
+    raw_bars = self._get_marketdata(
+        path="/stocks/bars",
+        params=request_params.to_request_fields(),
+        page_size=10_000,
+    )
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 393, in _get_marketdata
+    response = self.get(path=path, data=params)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 225, in get
+    return self._request("GET", path, data, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 131, in _request
+    return self._one_request(method, url, opts, retry)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/alpaca/common/rest.py", line 195, in _one_request
+    response = self._session.request(method, url, **opts)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/fast_api_trading/.venv/lib/python3.13/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
