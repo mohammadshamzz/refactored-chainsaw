@@ -1,31 +1,31 @@
 import logging
 import threading
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, date, timedelta, timezone
 import pandas as pd
-import numpy as np
 import asyncio
 from typing import Optional, Dict, Any
 
-# Import logging configuration
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from logging_config import setup_logging
 setup_logging()
 
-# Import your custom modules
 from .database import execute_db_query
 from .analysis import (
     analyze_market_structure, find_order_blocks, find_fair_value_gaps,
     find_swing_points, get_market_regime, find_mss, is_volume_significant,
     get_dynamic_target, calculate_atr
 )
-from .risk_manager import calculate_position_size
+from .risk_manager import RiskManager
 from .live_orders_manager import OrderType
 from .trading_journal import TradingJournal
 from .external_notifications import external_notifier
 from .notifications import notification_manager
+from .data_manager import DataManager
+from .llm_scanner import LLMScanner
+
 
 class TradingAgent(threading.Thread):
     def __init__(self, shared_state, lock, db_pool, broker, live_orders_manager):
@@ -37,28 +37,27 @@ class TradingAgent(threading.Thread):
         self.db_pool = db_pool
         self.config = shared_state['config']
         self.broker = broker
-        self.live_orders_manager = live_orders_manager # The manager is passed in uninitialized
+        self.live_orders_manager = live_orders_manager
         self.trading_journal = TradingJournal(db_pool)
+        self.risk_manager = RiskManager(self.config)
         self.watchlist: Dict[str, dict] = {}
-        self._trade_locks_by_symbol = {}
         self.active_trades_by_symbol = {}
-        self.startup_notification_sent = False
-        self.daily_equity_start = 0.0  # Track starting equity for daily loss calculation
+        self.daily_equity_start = 0.0
+        self.daily_trades_executed = 0
+        self.current_trading_day: Optional[date] = None
+        self.last_llm_scan_date: Optional[date] = None
         
-        # PDT Management System (CRITICAL ADDITION)
+        self.data_manager = DataManager(db_pool, broker)
+        self.llm_scanner = LLMScanner(db_pool, broker)
+
         self.pdt_config = self.config.get('pdt_management', {'enabled': True, 'daily_trade_limit': 4})
         self.pdt_enabled = self.pdt_config.get('enabled', True)
         self.pdt_trade_limit = self.pdt_config.get('daily_trade_limit', 4)
-        self.daily_trades_executed = 0
-        self.current_trading_day = None
-        self.pending_trade_candidates = []
         
-        # Concurrency control for API calls
-        self._api_semaphore = asyncio.Semaphore(5)  # Max 5 concurrent API calls
-        self._symbol_batch_index = 0  # For rotating through symbols
+        self._api_semaphore = asyncio.Semaphore(5)
+        self._symbol_batch_index = 0
         
-        logging.info(f"PDT Management: {'Enabled' if self.pdt_enabled else 'Disabled'} "
-                    f"(Limit: {self.pdt_trade_limit} trades/day)")
+        logging.info(f"PDT Management: {'Enabled' if self.pdt_enabled else 'Disabled'} (Limit: {self.pdt_trade_limit} trades/day)")
 
     def _update_status(self, message, **kwargs):
         with self.lock:
@@ -107,32 +106,31 @@ class TradingAgent(threading.Thread):
             raise
 
     def run(self):
-        """Synchronous wrapper that creates a new event loop for this background thread."""
+        """Synchronous wrapper that runs the agent's async loop in a new thread."""
         try:
+            logging.info("TradingAgent thread starting.")
             asyncio.run(self.run_async())
         except Exception as e:
-            logging.error(f"TradingAgent thread crashed: {e}", exc_info=True)
-            self._update_status(f"Crashed: {e}")
+            logging.critical(f"FATAL: TradingAgent thread has crashed: {e}", exc_info=True)
+            self._update_status(f"FATAL CRASH: {e}")
+            raise
 
     async def run_async(self):
-        """The main asynchronous loop for the trading agent, running in its own thread."""
-        logging.info("Trading Agent's async loop started.")
-
-        # --- FIX: All async initialization now happens here, inside the thread's dedicated event loop ---
+        """The main asynchronous loop for the trading agent."""
+        logging.info("Trading Agent started.")
         try:
             await self.live_orders_manager.initialize()
             await self.live_orders_manager.load_orders_from_db()
-            self.live_orders_manager.start_monitoring() # This starts the order monitoring task
-            
+            self.live_orders_manager.start_monitoring()
+
             await self._connect_services()
             await self.trading_journal.initialize()
-            
-            # Load persisted state
+
             await self._load_agent_state()
+
+            self.current_trading_day = date.today()
             
-            if not self.startup_notification_sent:
-                external_notifier.send_email_notification("System Startup", "The ICT Trading Agent has started successfully.")
-                self.startup_notification_sent = True
+            external_notifier.send_email_notification("System Startup", "The ICT Trading Agent has started successfully.")
         except Exception as e:
             logging.critical(f"FATAL: Agent failed during initial setup: {e}", exc_info=True)
             external_notifier.notify_system_error("Agent Startup Failure", str(e))
@@ -148,9 +146,8 @@ class TradingAgent(threading.Thread):
                 error_msg = f"CRITICAL ERROR in agent's main loop: {e}"
                 logging.error(error_msg, exc_info=True)
                 external_notifier.notify_system_error("Agent Main Loop Crash", str(e))
-                await asyncio.sleep(30) # Wait before retrying
+                await asyncio.sleep(30)
         
-        # --- Graceful Shutdown ---
         await self.live_orders_manager.stop_monitoring()
         logging.info("Agent's async loop has finished.")
 
@@ -163,39 +160,39 @@ class TradingAgent(threading.Thread):
         with self.lock:
             self.shared_state.setdefault('htf_bias', {})[symbol] = bias
     
-    async def _get_daily_pnl(self) -> float:
-        """Get today's P&L (both realized and unrealized)."""
-        try:
-            # Update daily equity tracking first
-            await self._update_daily_equity_tracking()
-            
-            # Get current equity
-            account = await self.broker.get_account()
-            current_equity = float(getattr(account, 'equity', 0))
-            
-            # Calculate total daily P&L (realized + unrealized)
-            daily_pnl = current_equity - self.daily_equity_start
-            
-            return daily_pnl
-        except Exception as e:
-            logging.exception(f"Error getting daily P&L - start equity: ${self.daily_equity_start:.2f}: {e}")
-            return 0.0
+    async def _get_daily_pnl(self, current_equity: float) -> float:
+        """Calculates today's P&L."""
+        await self._update_daily_equity_tracking()
+        return current_equity - self.daily_equity_start
     
     def _df_has_rows(self, df: pd.DataFrame, min_rows: int = 1) -> bool:
         """Helper to safely check if DataFrame has sufficient rows."""
         return df is not None and not df.empty and len(df) >= min_rows
     
+    def _get_daily_trades_executed(self) -> int:
+        """Gets the daily trade count from the shared state. This is a synchronous operation."""
+        with self.lock:
+            return self.shared_state.get('pdt_info', {}).get('daily_trades_executed', 0)
+
+    async def _increment_daily_trades(self):
+        """Increments the daily trade count and saves the state."""
+        with self.lock:
+            pdt_info = self.shared_state.setdefault('pdt_info', {})
+            current_trades = pdt_info.get('daily_trades_executed', 0)
+            pdt_info['daily_trades_executed'] = current_trades + 1
+        await self._save_agent_state()
+
     async def _reset_daily_pdt_counter(self):
-        """Reset PDT counter for new trading day."""
-        from datetime import date
+        """Resets PDT counter for a new trading day."""
         today = date.today()
-        
-        if self.current_trading_day != today:
-            self.current_trading_day = today
-            self.daily_trades_executed = 0
-            self.pending_trade_candidates = []
-            logging.info(f"New trading day: {today}. PDT counter reset to 0/{self.pdt_trade_limit}")
-    
+        current_trading_day = self.shared_state.get('current_trading_day')
+        if current_trading_day != today:
+            self.shared_state['current_trading_day'] = today
+            with self.lock:
+                self.shared_state.setdefault('pdt_info', {})['daily_trades_executed'] = 0
+            logging.info(f"New trading day: {today}. PDT counter reset.")
+            await self._save_agent_state()
+
     def _calculate_confluence_score(self, trade_signal: dict, htf_data: pd.DataFrame) -> int:
         """
         Calculate confluence score for trade ranking (matches backtest logic).
@@ -247,7 +244,7 @@ class TradingAgent(threading.Thread):
     async def _manage_trailing_stops(self):
         """
         Monitor open positions and update trailing stops.
-        
+
         Note: This method provides manual trailing stop management for positions
         that were created without Alpaca's native trailing stops. New trades
         submitted with trailing_stop_percent use Alpaca's automatic trailing
@@ -257,38 +254,42 @@ class TradingAgent(threading.Thread):
             positions = await self.broker.get_all_positions()
             if not positions:
                 return
-            
+
             trailing_atr_mult = self.config['trading'].get('trailing_stop_atr_multiplier', 2.5)
-            
+            symbols = [pos.symbol for pos in positions]
+
+            # --- Fetch all LTF data in a single batch ---
+            ltf_timeframe = self.config['timeframes']['ltf']
+            end_dt = datetime.now(timezone.utc)
+            start_dt = end_dt - timedelta(days=60)  # Adjust lookback as needed
+
+            ltf_data_dict = await self.data_manager.get_bars_multiple(symbols, ltf_timeframe, start_dt, end_dt)
+
             for position in positions:
                 symbol = position.symbol
                 side = 'buy' if float(position.qty) > 0 else 'sell'
                 current_price = float(position.market_value) / float(position.qty)
-                
-                # Get recent data for ATR calculation
-                market_data = await self._fetch_all_timeframes(symbol)
-                ltf_data = market_data.get('ltf')
-                
+
+                ltf_data = ltf_data_dict.get(symbol, pd.DataFrame())
+
                 if not self._df_has_rows(ltf_data, 20):
                     continue
-                
+
                 atr_series = calculate_atr(ltf_data)
                 if not self._df_has_rows(atr_series, 1):
                     continue
-                
+
                 current_atr = atr_series.iloc[-1]
-                
+
                 # Calculate new trailing stop
-                if side == 'buy':
-                    new_stop = current_price - (current_atr * trailing_atr_mult)
-                else:
-                    new_stop = current_price + (current_atr * trailing_atr_mult)
-                
-                # Update stop loss if it's more favorable
+                new_stop = current_price - (current_atr * trailing_atr_mult) if side == 'buy' else current_price + (current_atr * trailing_atr_mult)
+
+                # Update stop loss if more favorable
                 await self._update_trailing_stop(symbol, side, new_stop)
-                
+
         except Exception as e:
             logging.exception(f"Error managing trailing stops for {len(positions) if 'positions' in locals() else 'unknown'} positions: {e}")
+
     
     async def _update_trailing_stop(self, symbol: str, side: str, new_stop: float):
         """
@@ -321,120 +322,137 @@ class TradingAgent(threading.Thread):
             logging.exception(f"Error updating trailing stop for {symbol} - side: {side}, new_stop: ${new_stop:.2f}: {e}")
     
     async def _save_agent_state(self):
-        """Persist agent state to database."""
+        """Saves the agent's current state to the database with robust, individual inserts."""
         try:
-            state_data = {
-                'watchlist': self.watchlist,
-                'daily_equity_start': self.daily_equity_start,
-                'daily_trades_executed': self.daily_trades_executed,
-                'current_trading_day': self.current_trading_day.isoformat() if self.current_trading_day else None,
-                'last_saved': datetime.now(timezone.utc).isoformat()
-            }
-
-            logging.info(f"Saving agent state - {state_data}"); 
+            # First, clear the existing watchlist to ensure a clean state.
+            await execute_db_query(self.db_pool, "DELETE FROM watchlist")
             
-            query = """
-                INSERT INTO agent_state (id, state_data, updated_at)
-                VALUES ('main_agent', %s, %s)
-                ON CONFLICT (id) DO UPDATE SET 
-                    state_data = EXCLUDED.state_data,
-                    updated_at = EXCLUDED.updated_at
-            """
-            await execute_db_query(self.db_pool, query, (json.dumps(state_data, default=str), datetime.now()))
-            
-        except Exception as e:
-            logging.exception(f"Error saving agent state - watchlist items: {len(self.watchlist)}: {e}")
-    
-    async def _load_agent_state(self):
-        """Load persisted agent state from database."""
-        try:
-            # Create agent_state table if it doesn't exist
-            create_table_query = """
-                CREATE TABLE IF NOT EXISTS agent_state (
-                    id VARCHAR(50) PRIMARY KEY,
-                    state_data JSONB NOT NULL,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
-            """
-            await execute_db_query(self.db_pool, create_table_query)
-            
-            # Create PDT tracking table
-            pdt_table_query = """
-                CREATE TABLE IF NOT EXISTS pdt_tracking (
-                    date DATE PRIMARY KEY,
-                    trades_executed INTEGER DEFAULT 0,
-                    trades_available INTEGER DEFAULT 4,
-                    confluence_scores JSONB,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
-            """
-            await execute_db_query(self.db_pool, pdt_table_query)
-            
-            # Load state
-            query = "SELECT state_data FROM agent_state WHERE id = %s"
-            result = await execute_db_query(self.db_pool, query, ('main_agent',), fetch='one')
-            
-            if result:
-                state_data = result['state_data'] if isinstance(result['state_data'], dict) else json.loads(result['state_data'])
-                self.watchlist = state_data.get('watchlist', {})
-                self.daily_equity_start = state_data.get('daily_equity_start', 0.0)
-                self.daily_trades_executed = state_data.get('daily_trades_executed', 0)
-                
-                # Restore current trading day
-                trading_day_str = state_data.get('current_trading_day')
-                if trading_day_str:
-                    from datetime import date
-                    self.current_trading_day = date.fromisoformat(trading_day_str)
-                
-                # Update shared state for dashboard
-                with self.lock:
-                    self.shared_state['watchlist'] = dict(self.watchlist)
-                
-                logging.info(f"Loaded agent state: {len(self.watchlist)} watchlist items, "
-                           f"PDT: {self.daily_trades_executed}/{self.pdt_trade_limit}")
-            else:
-                # Initialize daily equity start
-                account = await self.broker.get_account()
-                self.daily_equity_start = float(getattr(account, 'equity', 0))
-                await self._save_agent_state()
-                
-        except Exception as e:
-            logging.exception(f"Error loading agent state from database: {e}")
-            # Initialize with defaults on load failure
-            self.watchlist = {}
-            self.daily_equity_start = 0.0
-    
-    async def _update_daily_equity_tracking(self):
-        """Update daily equity tracking for loss calculation."""
-        try:
-            from datetime import date
-            today = date.today()
-            
-            # Check if we need to reset daily tracking (new day)
-            query = """
-                SELECT equity_start, date_tracked FROM daily_equity_tracking 
-                WHERE date_tracked = %s ORDER BY created_at DESC LIMIT 1
-            """
-            result = await execute_db_query(self.db_pool, query, (today,), fetch='one')
-            
-            if not result:
-                # New day - record starting equity
-                account = await self.broker.get_account()
-                current_equity = float(getattr(account, 'equity', 0))
-                
-                insert_query = """
-                    INSERT INTO daily_equity_tracking (date_tracked, equity_start, created_at)
-                    VALUES (%s, %s, %s)
+            # Then, insert each item in a loop.
+            if self.watchlist:
+                query = """
+                    INSERT INTO watchlist (symbol, direction, poi_range_bottom, poi_range_top, htf_stop_loss, 
+                                        timestamp, max_duration_seconds, state, score, type)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """
-                await execute_db_query(self.db_pool, insert_query, (today, current_equity, datetime.now()))
-                self.daily_equity_start = current_equity
-                
-                logging.info(f"New trading day started. Starting equity: ${current_equity:.2f}")
-            else:
-                self.daily_equity_start = float(result['equity_start'])
+                for symbol, data in self.watchlist.items():
+                    params = (
+                        symbol, 
+                        data['direction'], 
+                        float(data['poi_range'][0]), 
+                        float(data['poi_range'][1]),
+                        float(data['htf_stop_loss']), 
+                        data['timestamp'], 
+                        data['max_duration_seconds'],
+                        data['state'], 
+                        data['score'], 
+                        data['type']
+                    )
+                    await execute_db_query(self.db_pool, query, params)
+
+            # Save other variables
+            # This now correctly calls the synchronous _get_daily_trades_executed
+            variables = {
+                "daily_trades_executed": self._get_daily_trades_executed(),
+                "current_trading_day": self.shared_state.get('current_trading_day').isoformat() if self.shared_state.get('current_trading_day') else None
+            }
+            for key, value in variables.items():
+                query = """
+                    INSERT INTO agent_variables (key, value_json) VALUES (%s, %s)
+                    ON CONFLICT (key) DO UPDATE SET value_json = EXCLUDED.value_json
+                """
+                json_value = json.dumps(value)
+                await execute_db_query(self.db_pool, query, (key, json_value))
                 
         except Exception as e:
-            logging.exception(f"Error updating daily equity tracking - start equity: ${self.daily_equity_start:.2f}: {e}")
+            logging.error(f"Error saving agent state: {e}", exc_info=True)
+
+    async def _get_analysis_symbols(self) -> list[str]:
+        """
+        Constructs the list of symbols to analyze by combining the static config
+        list with the dynamic, LLM-generated list from the database.
+        """
+        static_symbols = set(self.config['trading'].get('instruments', []))
+        
+        dynamic_symbols = set()
+        today = date.today()
+        query = "SELECT symbol FROM daily_focus_list WHERE trade_date = %s;"
+        try:
+            rows = await execute_db_query(self.db_pool, query, (today,), fetch='all')
+            if rows:
+                dynamic_symbols = {row['symbol'] for row in rows}
+        except Exception as e:
+            logging.error(f"Could not fetch dynamic focus list from database: {e}")
+
+        combined_list = sorted(list(static_symbols.union(dynamic_symbols)))
+        if not combined_list:
+             logging.warning("Analysis symbol list is empty. Check config and scanner.")
+        else:
+            logging.info(f"Constructed analysis list with {len(combined_list)} unique symbols.")
+        return combined_list
+
+    async def _load_agent_state(self):
+        """Load agent state from structured database tables with robust JSON parsing."""
+        try:
+            # --- Load watchlist ---
+            watchlist_rows = await execute_db_query(self.db_pool, "SELECT * FROM watchlist", fetch='all')
+            if watchlist_rows:
+                self.watchlist = {
+                    row['symbol']: {
+                        'symbol': row['symbol'],
+                        'direction': row['direction'],
+                        'poi_range': (float(row['poi_range_bottom']), float(row['poi_range_top'])),
+                        'htf_stop_loss': float(row['htf_stop_loss']),
+                        'timestamp': row['timestamp'],
+                        'max_duration_seconds': row['max_duration_seconds'],
+                        'state': row['state'],
+                        'score': row['score'],
+                        'type': row['type']
+                    } for row in watchlist_rows
+                }
+            logging.info(f"Loaded {len(self.watchlist)} items from watchlist table.")
+
+            # --- Load other variables from agent_variables table ---
+            result = await execute_db_query(self.db_pool, "SELECT key, value_json FROM agent_variables", fetch='all')
+            if result:
+                state_data = {}
+                for row in result:
+                    key = row['key']
+                    value = row['value_json']
+                    
+                    if key == "current_trading_day":
+                        from datetime import date
+                        value = date.fromisoformat(value)
+                    elif isinstance(value, str):
+                        try:
+                            state_data[key] = json.loads(value)
+                        except json.JSONDecodeError:
+                            logging.warning(f"Could not decode JSON for key '{key}'. Value: '{value}'. Skipping.")
+                            continue
+                    else:
+                        state_data[key] = value
+                
+                daily_trades = state_data.get("daily_trades_executed", 0)
+                with self.lock:
+                    self.shared_state.setdefault('pdt_info', {})['daily_trades_executed'] = daily_trades
+
+            with self.lock:
+                self.shared_state['watchlist'] = dict(self.watchlist)
+                
+        except Exception as e:
+            logging.error(f"Error loading agent state from database: {e}", exc_info=True)
+            self.watchlist = {}
+
+    async def _update_daily_equity_tracking(self):
+        """Resets the starting daily equity if it's a new day."""
+        today = date.today()
+        result = await execute_db_query(self.db_pool, "SELECT equity_start FROM daily_equity_tracking WHERE date_tracked = %s", (today,), fetch='one')
+        if not result:
+            account = await self.broker.get_account()
+            current_equity = float(getattr(account, 'equity', 0))
+            await execute_db_query(self.db_pool, "INSERT INTO daily_equity_tracking (date_tracked, equity_start) VALUES (%s, %s)", (today, current_equity))
+            self.daily_equity_start = current_equity
+        else:
+            self.daily_equity_start = float(result['equity_start'])
     
     async def _refresh_shared_state(self):
         """Refresh shared state with current account and position info."""
@@ -498,198 +516,234 @@ class TradingAgent(threading.Thread):
         except Exception as e:
             logging.exception(f"Error cleaning up closed positions: {e}")
     
-    async def _collect_and_rank_trade_candidates(self, symbols_batch: list) -> list:
+    async def _analyze_symbol_data(self, symbol: str, symbol_data_packet: dict) -> Optional[dict]:
         """
-        Collect all trade candidates from symbol analysis and rank by confluence score.
-        This matches the backtest's PDT management approach.
+        Analyzes a pre-fetched packet of market data for a single symbol to find a trade signal.
         """
-        trade_candidates = []
+        try:
+            # No extraction needed! The data is already in the right format.
+            htf_data = symbol_data_packet.get('htf', pd.DataFrame())
+
+            # Pass the packet directly to the next analysis step.
+            trade_signal = await self._analyze_symbol_for_signal(symbol, symbol_data_packet)
+
+            if trade_signal:
+                # Calculate confluence score if missing
+                if 'score' not in trade_signal:
+                    confluence_score = self._calculate_confluence_score(trade_signal, htf_data)
+                    trade_signal['score'] = confluence_score
+
+                logging.info(f"Trade candidate found: {symbol} (Score: {trade_signal.get('score', 0)})")
+                return trade_signal
+
+        except Exception as e:
+            logging.error(f"Error analyzing data for {symbol}: {e}", exc_info=True)
+
+        return None
+
+
+    async def _collect_and_rank_trade_candidates(self, symbols_to_analyze: list) -> list:
+        """
+        Efficiently fetches all market data in batches, then analyzes each 
+        symbol in parallel.
+        """
+        # 1. Fetch ALL data for ALL symbols first. This is the key change.
+        # This makes one API call per timeframe for all symbols, not one per symbol.
+        logging.info(f"Fetching market data for {len(symbols_to_analyze)} symbols across all timeframes...")
+        market_data = await self._fetch_all_timeframes(symbols_to_analyze)
+        logging.info("Market data download complete.")
+
+        # 2. Prepare analysis tasks with the data already downloaded.
+        trade_signals = []
+        analysis_tasks = []
+        for symbol in symbols_to_analyze:
+            # Create a "data packet" for each symbol from the pre-fetched data
+            symbol_data = {
+                'htf': market_data.get('htf', {}).get(symbol, pd.DataFrame()),
+                'itf': market_data.get('itf', {}).get(symbol, pd.DataFrame()),
+                'ltf': market_data.get('ltf', {}).get(symbol, pd.DataFrame())
+            }
+            # The analysis function no longer fetches data, it just analyzes
+            task = self._analyze_symbol_data(symbol, symbol_data)
+            analysis_tasks.append(task)
         
-        for symbol in symbols_batch:
-            try:
-                # Get market data for confluence scoring
-                market_data = await self._fetch_all_timeframes(symbol)
-                htf_data = market_data.get('htf', pd.DataFrame())
-                
-                # Check for trade signal
-                trade_signal = await self._analyze_symbol_for_signal(symbol, market_data)
-                
-                if trade_signal:
-                    # Use POI score from trade signal if available, otherwise calculate
-                    if 'confluence_score' not in trade_signal:
-                        confluence_score = self._calculate_confluence_score(trade_signal, htf_data)
-                        trade_signal['confluence_score'] = confluence_score
-                    
-                    trade_candidates.append(trade_signal)
-                    logging.info(f"Trade candidate: {symbol} (Score: {trade_signal.get('confluence_score', 0)})")
-                    
-            except Exception as e:
-                logging.exception(f"Error collecting trade candidate for {symbol}: {e}")
+        # 3. Run analysis in parallel, same as before.
+        results = await asyncio.gather(*analysis_tasks, return_exceptions=True)
         
-        # Sort by confluence score (highest first)
-        trade_candidates.sort(key=lambda x: x.get('confluence_score', 0), reverse=True)
+        for result in results:
+            if isinstance(result, dict):
+                trade_signals.append(result)
+
+        if not trade_signals:
+            return []
+
+        # 4. Sort and return the best candidates.
+        trade_signals.sort(key=lambda x: x.get('score', 0), reverse=True)
         
-        return trade_candidates
+        return trade_signals
     
-    async def _execute_best_trades_pdt_aware(self, trade_candidates: list):
-        """
-        Execute only the best trade candidates within PDT limits.
-        This is the core PDT management logic from the backtest.
-        """
-        if not trade_candidates:
-            return
-        
-        # Check PDT limits
+    async def _execute_best_trades_pdt_aware(self, trade_candidates: list, correlation_matrix: Optional[pd.DataFrame]):
+        if not trade_candidates: return
         if self.pdt_enabled and self.daily_trades_executed >= self.pdt_trade_limit:
-            logging.info(f"PDT limit reached ({self.pdt_trade_limit}). "
-                        f"Skipping {len(trade_candidates)} trade candidate(s).")
+            logging.info(f"PDT limit reached. Skipping {len(trade_candidates)} trade(s).")
             return
         
-        # Check position limits
         current_positions = await self.broker.get_all_positions()
         max_positions = self.config['trading'].get('max_positions', 5)
-        
         if len(current_positions) >= max_positions:
-            logging.warning(f"Max positions ({max_positions}) reached. "
-                           f"Cannot execute new trades.")
+            logging.warning(f"Max positions ({max_positions}) reached. Cannot execute new trades.")
             return
-        
-        # Calculate available slots
+
         position_slots = max_positions - len(current_positions)
-        pdt_slots = (self.pdt_trade_limit - self.daily_trades_executed 
-                    if self.pdt_enabled else len(trade_candidates))
+        pdt_slots = self.pdt_trade_limit - self.daily_trades_executed if self.pdt_enabled else len(trade_candidates)
         available_slots = min(position_slots, pdt_slots)
-        
-        # Execute best trades within limits
-        executed_count = 0
+
         for candidate in trade_candidates[:available_slots]:
             try:
-                success = await self._place_trade(candidate)
+                success = await self._place_trade(candidate, correlation_matrix)
                 if success:
-                    executed_count += 1
-                    if self.pdt_enabled:
-                        self.daily_trades_executed += 1
-                    
-                    logging.info(f"Executed trade {executed_count}/{available_slots}: "
-                                  f"{candidate['symbol']} (Score: {candidate.get('confluence_score', 0)})")
-                
+                    if self.pdt_enabled: self.daily_trades_executed += 1
             except Exception as e:
                 logging.exception(f"Error executing trade for {candidate['symbol']}: {e}")
-        
-        if executed_count > 0:
-            logging.info(f"PDT Status: {self.daily_trades_executed}/{self.pdt_trade_limit} trades used today")
 
     async def _run_analysis_cycle(self):
         try:
-            # Reset PDT counter for new day
             await self._reset_daily_pdt_counter()
             
-            # Check daily loss limit before analyzing symbols
             account = await self.broker.get_account()
             equity = float(getattr(account, 'equity', 0))
+            daily_pnl = await self._get_daily_pnl(equity)
             
-            # Get today's P&L to check daily loss limit
-            daily_pnl = await self._get_daily_pnl()
             max_daily_loss_percent = self.config['trading'].get('max_daily_loss_percent', 3.0)
             daily_loss_percent = abs(daily_pnl / equity * 100) if equity > 0 else 0
             
             if daily_pnl < 0 and daily_loss_percent >= max_daily_loss_percent:
-                self._update_status(f"Daily loss limit reached: -{daily_loss_percent:.1f}% (max: {max_daily_loss_percent}%). Trading halted.")
-                logging.warning(f"Daily loss limit exceeded: -{daily_loss_percent:.1f}%. Skipping analysis cycle.")
+                self._update_status(f"Daily loss limit reached: -{daily_loss_percent:.1f}%. Trading halted.")
                 return
+
+            if self.last_llm_scan_date != self.current_trading_day:
+                await self.llm_scanner.run_daily_scan()
+                self.last_llm_scan_date = self.current_trading_day
+                await self._save_agent_state()
+
+            symbols_to_analyze = await self._get_analysis_symbols()
+            if not symbols_to_analyze:
+                self._update_status("No symbols to analyze. Waiting...")
+                return
+
+            batch_size = self.config['agent'].get('analysis_batch_size', 50)
+            symbol_batches = list(self._get_batches(symbols_to_analyze, batch_size))
+            total_batches = len(symbol_batches)
+
+            logging.info(f"Starting analysis of {len(symbols_to_analyze)} symbols in {total_batches} batches of {batch_size}.")
+
+            for i, symbol_batch in enumerate(symbol_batches):
+                batch_num = i + 1
+                pdt_status = f"PDT: {self.daily_trades_executed}/{self.pdt_trade_limit}" if self.pdt_enabled else "PDT: Disabled"
+                
+                status_msg = (
+                    f"Analyzing Batch {batch_num}/{total_batches} ({len(symbol_batch)} symbols) | "
+                    f"Daily P&L: ${daily_pnl:.2f} | {pdt_status}"
+                )
+                self._update_status(status_msg)
+
+                # Each batch runs through the full fetch -> analyze -> execute pipeline
+                correlation_matrix = await self._calculate_correlation_matrix(symbol_batch)
+                trade_candidates = await self._collect_and_rank_trade_candidates(symbol_batch)
+
+                if trade_candidates:
+                    await self._execute_best_trades_pdt_aware(trade_candidates, correlation_matrix)
             
-            symbols = self.config['trading']['instruments']
-            
-            # Rotate through symbols to avoid analyzing the same ones every cycle
-            symbols_per_cycle = min(10, len(symbols))  # Analyze max 10 symbols per cycle
-            total_symbols = len(symbols)
-            
-            # Calculate which symbols to analyze this cycle
-            start_idx = self._symbol_batch_index % total_symbols
-            if start_idx + symbols_per_cycle <= total_symbols:
-                current_batch = symbols[start_idx:start_idx + symbols_per_cycle]
-            else:
-                # Wrap around to beginning
-                current_batch = symbols[start_idx:] + symbols[:symbols_per_cycle - (total_symbols - start_idx)]
-            
-            self._symbol_batch_index = (self._symbol_batch_index + symbols_per_cycle) % total_symbols
-            
-            # Update status with PDT info
-            pdt_status = f"PDT: {self.daily_trades_executed}/{self.pdt_trade_limit}" if self.pdt_enabled else "PDT: Disabled"
-            self._update_status(f"Analyzing {len(current_batch)}/{total_symbols} symbols... "
-                              f"Daily P&L: ${daily_pnl:.2f} | {pdt_status}")
-            
-            # Monitor existing positions for trailing stops
-            # Note: Manual trailing stop management is only needed for positions
-            # that were created without native Alpaca trailing stops
-            if self.config['trading'].get('use_trailing_stops', False):
-                await self._manage_trailing_stops()
-            
-            # Collect and rank trade candidates using PDT management
-            trade_candidates = await self._collect_and_rank_trade_candidates(current_batch)
-            
-            # Execute best trades within PDT limits
-            if trade_candidates:
-                await self._execute_best_trades_pdt_aware(trade_candidates)
-            
-            # Clean up closed positions and update shared state
+            logging.info(f"All {total_batches} analysis batches complete.")
+
             await self._cleanup_closed_positions()
             await self._refresh_shared_state()
+
         except Exception as e:
-            logging.exception(f"Critical error in PDT-aware analysis cycle: {e}")
-            # Don't return - continue running
+            logging.critical(f"Critical error in analysis cycle: {e}", exc_info=True)
 
-    async def _fetch_all_timeframes(self, symbol: str) -> dict:
+    def _get_batches(self, items: list, batch_size: int):
+        """Yield successive n-sized chunks from a list."""
+        for i in range(0, len(items), batch_size):
+            yield items[i:i + batch_size]
+            
+    async def _fetch_all_timeframes(self, symbols: list[str]) -> dict:
         """
-        Fetches bars for all configured timeframes for a given symbol, with throttling and retry on 429.
-        Returns a dict: {timeframe_name: pd.DataFrame}.
+        Fetches bars for all configured timeframes for multiple symbols
+        using DataManager.get_bars_multiple, returning a nested dict:
+            market_data[timeframe_name][symbol] = pd.DataFrame
         """
-        
-
         timeframes_cfg = self.config.get('timeframes', {})
         end_dt = datetime.now(timezone.utc)
-        start_dt = end_dt - timedelta(days=500)
-        market_data = {}
+        # Using a slightly longer lookback to ensure enough data for indicators
+        start_dt = end_dt - timedelta(days=500) 
 
-        async def fetch_bars(tf_name: str, tf_str: str) -> pd.DataFrame:
-            """
-            Fetch one timeframe - broker handles retries internally.
-            """
+        market_data = {}
+        # Iterate over the string names ('htf', 'itf', etc.) from the config
+        for tf_name in timeframes_cfg.keys():
             try:
-                bars = await self.broker.get_bars(
-                    symbol,
-                    self.broker.map_timeframe(tf_str),
-                    start_dt.isoformat(),
-                    end_dt.isoformat()
+                tf_value = timeframes_cfg[tf_name]
+
+                # Fetch bars for all symbols in this timeframe
+                tf_bars = await self.data_manager.get_bars_multiple(
+                    symbols, tf_value, start_dt, end_dt
                 )
                 
-                if bars.empty:
-                    logging.warning(f"No data returned for {symbol} {tf_name}")
-                else:
-                    logging.debug(f"Fetched {len(bars)} bars for {symbol} {tf_name}")
+                # Ensure every symbol has a DataFrame in the result
+                market_data[tf_name] = {s: tf_bars.get(s, pd.DataFrame()) for s in symbols}
                 
-                return bars
             except Exception as e:
-                logging.exception(f"Error fetching {tf_name} for {symbol}: {e}")
-                return pd.DataFrame()
-
-        # Use semaphore to control concurrent API calls
-        async def fetch_with_semaphore(tf_name, tf_str):
-            async with self._api_semaphore:
-                return tf_name, await fetch_bars(tf_name, tf_str)
-        
-        # Fetch all timeframes concurrently but with rate limiting
-        tasks = [fetch_with_semaphore(tf_name, tf_str) for tf_name, tf_str in timeframes_cfg.items()]
-        results = await asyncio.gather(*tasks, return_exceptions=True)
-        
-        for result in results:
-            if isinstance(result, Exception):
-                logging.exception(f"Error fetching timeframe for {symbol}: {result}")
-                continue
-            tf_name, df = result
-            market_data[tf_name] = df
+                logging.error(f"Error fetching timeframe '{tf_name}' for symbols {symbols}: {e}")
+                # Ensure the structure is consistent even on error
+                market_data[tf_name] = {s: pd.DataFrame() for s in symbols}
 
         return market_data
+        
+
+    async def _calculate_correlation_matrix(self, symbols: list[str]) -> Optional[pd.DataFrame]:
+        """
+        Calculates the correlation matrix for the analysis cycle using the 
+        close prices of the High-Timeframe (HTF) bars.
+        """
+        if not symbols or len(symbols) < 2:
+            return None
+
+        try:
+            trading_cfg = self.config.get('trading', {})
+            lookback_days = trading_cfg.get('correlation_lookback_days', 30)
+            end_date = datetime.now(timezone.utc)
+            start_date = end_date - timedelta(days=lookback_days)
+
+            # Get HTF timeframe from config
+            htf_value = self.config['timeframes']['htf']
+
+            # Fetch HTF bars for all symbols in a single batch
+            bars_dict = await self.data_manager.get_bars_multiple(
+                symbols, htf_value, start_date, end_date
+            )
+
+            # Extract close prices and build a combined DataFrame
+            price_data = {}
+            for symbol, df in bars_dict.items():
+                if isinstance(df, pd.DataFrame) and not df.empty:
+                    price_data[symbol] = df['close']
+
+            if len(price_data) < 2:
+                logging.warning("Not enough symbols with data to calculate correlation.")
+                return None 
+
+            # Combine into a single DataFrame, forward-fill missing values, and calculate correlation
+            price_df = pd.DataFrame(price_data)
+            correlation_matrix = price_df.ffill().corr()
+            
+            return correlation_matrix
+
+        except Exception as e:
+            logging.error(f"Error calculating correlation matrix: {e}", exc_info=True)
+            return None
+
+
+
 
     async def _analyze_symbol_for_signal(self, symbol: str, market_data: dict) -> Optional[dict]:
         """
@@ -738,7 +792,7 @@ class TradingAgent(threading.Thread):
         
         # Check watchlist for LTF confirmation
         if symbol in self.watchlist:
-            return self._check_ltf_confirmation_enhanced(symbol, htf_data, ltf_data, self.watchlist[symbol])
+            return await self._check_ltf_confirmation(symbol, htf_data, ltf_data, self.watchlist[symbol])
         else:
             # Look for new HTF setup
             await self._find_htf_setup_async(symbol, htf_data, itf_data)
@@ -876,32 +930,30 @@ class TradingAgent(threading.Thread):
             logging.info(f"[{symbol}] NEW POI | Type={best_poi.get('type')} | Score={best_poi.get('score', 0):.0f} | Range=({best_poi['bottom']:.2f}, {best_poi['top']:.2f}) | SL={stop_loss:.2f}")
             
             self.watchlist[symbol] = {
+                'symbol': symbol,
                 'direction': 'buy' if market_trend == 'Bullish' else 'sell',
-                'poi_range': (best_poi['bottom'], best_poi['top']),
-                'htf_stop_loss': stop_loss,
+                'poi_range': (float(best_poi['bottom']), float(best_poi['top'])),
+                'htf_stop_loss': float(stop_loss),
                 'timestamp': datetime.now(timezone.utc),
-                'max_duration_seconds': max_duration,
+                'max_duration_seconds': int(max_duration),
                 'state': 'awaiting_pullback',
-                'score': best_poi.get('score', 0),  # Store POI score for later use
+                'score': int(best_poi.get('score', 0)),
                 'type': best_poi.get('type', "OB")
             }
-            
-            # Update shared state for dashboard
+
             with self.lock:
                 self.shared_state['watchlist'] = dict(self.watchlist)
             
-            # Save state after watchlist update
-            await self._save_agent_state()
-            
             logging.info(f"[{symbol}] New HTF setup added to watchlist. Direction: {self.watchlist[symbol]['direction']}.")
             notification_manager.notify_setup_found(symbol, self.watchlist[symbol]['direction'])
+            await self._save_agent_state()
         else:
             logging.debug(f"[{symbol}] ⚠️ No valid POIs found after filtering")
 
-    def _check_ltf_confirmation_enhanced(self, symbol: str, htf_data: pd.DataFrame, 
+    async def _check_ltf_confirmation(self, symbol: str, htf_data: pd.DataFrame, 
                                        ltf_data: pd.DataFrame, setup_info: dict) -> Optional[dict]:
         """
-        Enhanced LTF confirmation that returns trade signals with confluence data.
+        LTF confirmation that returns trade signals with confluence data.
         This matches the backtest's trade signal generation.
         """
         # Fix #3: Add stop loss invalidation check (matches backtest exactly)
@@ -922,6 +974,7 @@ class TradingAgent(threading.Thread):
                 del self.watchlist[symbol]
                 with self.lock:
                     self.shared_state['watchlist'] = dict(self.watchlist)
+            await self._save_agent_state()
             return None
         
         # Existing timeout logic
@@ -938,6 +991,7 @@ class TradingAgent(threading.Thread):
                 # Update shared state for dashboard
                 with self.lock:
                     self.shared_state['watchlist'] = dict(self.watchlist)
+            await self._save_agent_state()
             return None
         
         direction = setup_info['direction']
@@ -1038,6 +1092,7 @@ class TradingAgent(threading.Thread):
                         # Update shared state for dashboard
                         with self.lock:
                             self.shared_state['watchlist'] = dict(self.watchlist)
+                        await self._save_agent_state()
                     
                     return {
                         'symbol': symbol,
@@ -1055,126 +1110,64 @@ class TradingAgent(threading.Thread):
         
         return None
 
-
-
     async def _place_trade(self, signal: dict) -> bool:
-        """
-        Place a trade and return success status for PDT management.
-        Returns True if trade was successfully submitted, False otherwise.
-        """
+        """Place a trade and ensure all numeric values are standard floats."""
         symbol = signal['symbol']
         try:
-            # Fix #2: Add correlation filtering (matches backtest exactly)
+            # Correlation filter logic remains the same...
             trading_cfg = self.config.get('trading', {})
-            if trading_cfg.get('use_correlation_filter', False) and self.active_trades_by_symbol:
-                active_symbols = list(self.active_trades_by_symbol.keys())
-                htf_tf = self.config['timeframes']['htf']
-                lookback_days = trading_cfg.get('correlation_lookback_days', 60)
-                end_date = signal['timestamp']
-                start_date = end_date - timedelta(days=lookback_days)
-                
-                # Fetch correlation data for all symbols
-                price_data = {}
-                all_symbols_for_corr = active_symbols + [symbol]
-                
-                for s in all_symbols_for_corr:
-                    try:
-                        # Fetch HTF data for correlation analysis
-                        market_data = await self._fetch_all_timeframes(s)
-                        htf_data = market_data.get('htf')
-                        if htf_data is not None and not htf_data.empty:
-                            # Filter by date range
-                            date_filtered = htf_data.loc[start_date:end_date] if start_date in htf_data.index else htf_data.tail(lookback_days)
-                            if not date_filtered.empty:
-                                price_data[s] = date_filtered['close']
-                    except Exception as e:
-                        logging.debug(f"Error fetching correlation data for {s}: {e}")
-                
-                if len(price_data) > 1:
-                    try:
-                        corr_matrix = pd.DataFrame(price_data).ffill().corr()
-                        max_corr = 0
-                        for active_sym in active_symbols:
-                            if active_sym in corr_matrix.columns and symbol in corr_matrix.index:
-                                max_corr = max(max_corr, abs(corr_matrix.loc[symbol, active_sym]))
-                        
-                        if max_corr > trading_cfg.get('correlation_threshold', 0.7):
-                            logging.warning(f"[{symbol}] Trade skipped due to high correlation ({max_corr:.2f}).")
-                            return False
-                    except Exception as e:
-                        logging.debug(f"Error calculating correlation for {symbol}: {e}")
-            
-            # Check if market is open before placing trade
-            if not await self.broker.is_market_open():
-                logging.warning(f"[{symbol}] Market is closed. Cannot place trade.")
-                return False
-            
+            correlation_matrix = self.correlation_matrix
+            if trading_cfg.get('use_correlation_filter', False) and not correlation_matrix.empty and symbol in correlation_matrix.index:
+                active_symbols = [s for s in self.active_trades_by_symbol if s in correlation_matrix.columns]
+                if active_symbols:
+                    max_corr = correlation_matrix.loc[symbol, active_symbols].abs().max()
+                    if max_corr > trading_cfg.get('correlation_threshold', 0.7):
+                        logging.warning(f"[{symbol}] Trade skipped due to high correlation ({max_corr:.2f}).")
+                        return False
+
             account = await self.broker.get_account()
             equity = float(getattr(account, 'equity', 0))
-            risk_percent_from_config = self.config['trading']['account_risk_percent']
-            
-            # Always treat config value as percentage (e.g., 1.0 = 1%)
-            qty = calculate_position_size(equity, risk_percent_from_config, signal['entry_price'], signal['stop_loss'])
+            qty = self.risk_manager.calculate_position_size(
+                equity, signal['risk_percent'], signal['entry_price'], signal['stop_loss']
+            )
             if qty <= 0:
-                logging.warning(f"[{symbol}] Calculated position size is {qty}. Aborting trade.")
-                return False
-            
-            # Validate minimum order value
-            order_value = qty * signal['entry_price']
-            if order_value < 1.0:
-                logging.warning(f"[{symbol}] Order value ${order_value:.2f} is below minimum $1.00. Aborting trade.")
+                logging.warning(f"[{symbol}] Calculated position size is {qty}. Aborting.")
                 return False
 
-            # Calculate trailing stop percentage if enabled
+            if not await self.broker.is_market_open():
+                logging.warning(f"[{symbol}] Market closed just before order submission. Aborting.")
+                return False
+
+            # --- FIX: Pass the correct trailing stop variable ---
             trailing_stop_percent = None
             if self.config['trading'].get('use_trailing_stops', False):
-                # Calculate trailing stop as percentage of entry price
+                # This calculation is correct
                 stop_distance = abs(signal['entry_price'] - signal['stop_loss'])
-                trailing_stop_percent = (stop_distance / signal['entry_price']) * 100
-                
-                # Ensure reasonable trailing stop percentage (0.1% to 10%)
-                trailing_stop_percent = max(0.1, min(10.0, trailing_stop_percent))
-                
+                trailing_stop_percent = max(0.1, min(10.0, (stop_distance / signal['entry_price']) * 100))
                 logging.info(f"[{symbol}] Calculated trailing stop: {trailing_stop_percent:.2f}%")
 
-            # Log trade details before submission
-            logging.info(f"[{symbol}] Placing trade: {signal['side']} {qty} shares @ ${signal['entry_price']:.2f}")
-            logging.info(f"[{symbol}] Stop Loss: ${signal['stop_loss']:.2f}, Take Profit: ${signal['take_profit']:.2f}")
-            if trailing_stop_percent:
-                logging.info(f"[{symbol}] Using trailing stop: {trailing_stop_percent:.2f}% (replaces fixed stop)")
-            logging.info(f"[{symbol}] Risk: ${abs(qty * (signal['entry_price'] - signal['stop_loss'])):.2f} ({risk_percent_from_config}% of ${equity:.2f})")
-
-            # Submit bracket order with entry, stop loss, take profit, and optional trailing stop
             order_result = await self.live_orders_manager.submit_order(
                 symbol=symbol,
                 side=signal['side'],
                 quantity=qty,
                 order_type=OrderType.LIMIT,
-                price=signal['entry_price'],
-                stop_loss=signal['stop_loss'],
-                take_profit=signal['take_profit'],
+                price=float(signal['entry_price']),
+                stop_loss=float(signal['stop_loss']),
+                take_profit=float(signal['take_profit']),
+                # Pass the local variable that was just calculated
                 trailing_stop_percent=trailing_stop_percent
             )
 
             if order_result:
-                # Update in-memory active trades tracking
-                self.active_trades_by_symbol[symbol] = {
-                    'qty': qty,
-                    'side': signal['side'],
-                    'entry_price': signal['entry_price'],
-                    'order_id': order_result
-                }
-                
-                logging.info(f"*** [{symbol}] TRADE SUBMITTED SUCCESSFULLY! Order ID: {order_result} ***")
+                self.active_trades_by_symbol[symbol] = {'qty': qty, 'side': signal['side'], 'order_id': order_result}
+                await self._increment_daily_trades()
                 notification_manager.notify_trade_executed(symbol, signal['side'], qty, signal['entry_price'])
-                external_notifier.notify_trade_executed(symbol, signal['side'], qty, signal['entry_price'], str(order_result))
                 return True
-            else:
-                logging.error(f"[{symbol}] Failed to submit trade - order manager returned None")
-                return False
-                
-        except Exception as e:
-            logging.exception(f"Failed to place trade for {symbol} - Signal: {signal.get('side', 'unknown')} @ ${signal.get('entry_price', 0):.2f}: {e}")
-            external_notifier.notify_system_error(f"Trade Execution Failure: {symbol}", str(e))
             return False
+        except Exception as e:
+            logging.error(f"Failed to place trade for {symbol}: {e}", exc_info=True)
+            return False
+
+
+
 

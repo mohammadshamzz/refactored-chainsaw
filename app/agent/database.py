@@ -7,13 +7,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def get_db_connection_pool(config=None):
     """Create a PostgreSQL connection pool."""
-    logging.info(
-        f"Connecting to PostgreSQL database... "
-        f"{ { 'dbname': os.getenv('DB_NAME'), 'user': os.getenv('DB_USER'), 'host': os.getenv('DB_HOST'), 'port': os.getenv('DB_PORT') } }"
-    )
+    logging.info("Connecting to PostgreSQL database.")
     return pool.SimpleConnectionPool(
         1,
         10,
@@ -42,7 +40,10 @@ async def execute_db_query(db_pool, query, params=None, fetch=None, many=False):
         cur = conn.cursor()
 
         if many:
-            cur.executemany(query, params or [])
+            if not params:
+                logging.debug("executemany called with empty params, skipping query.")
+                return None
+            cur.executemany(query, params)
         else:
             cur.execute(query, params or ())
 
